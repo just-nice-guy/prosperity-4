@@ -1,0 +1,12 @@
+frontend/node_modules/
+frontend/dist/
+backend/build/
+backend/*.egg-info/
+backend/workspace/runs/*
+!backend/workspace/runs/.gitkeep
+backend/workspace/cache/*
+!backend/workspace/cache/.gitkeep
+backend/workspace/db/*
+!backend/workspace/db/.gitkeep
+**/__pycache__/
+*.pyc

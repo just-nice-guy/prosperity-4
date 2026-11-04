@@ -1,0 +1,26 @@
+debile pour passif
+
+spike (souvent imbalance)
+idée
+- prendre le mid price d'avant ou le spread censé vs le spread actuel, et suivant à quel point c'est violent, on y va
+- ATTENTION : lorsqu'il manque un ask ou un bid, ça ne le prend pas en compte, peut-être faire différemment
+- ATTENTION : ne pas mettre de passive order si j'exécute en taker ou si le spread est insuffisant
+- gérer l'inventaire
+
+
+trucs à améliorer
+- meilleure FV (peu sensible aux spikes)
+- gestion de l'inventaire : utiliser AS (peut-être augmenter la taille sur spike si ça empire l'inventaire, ou laisser AS modifier la FV) (AS se fait par le prix, mais on peut aussi le faire par le volume)
+- meilleur maker (2 choix : supposé insensible au spread et donc mettre le max, ou sensible et essayer d'en avoir un proche)
+
+tester avec le mid price et rajouter une moyenne, ou mieux une médiane, pour les pics
+
+micro price multiniveau (L1 + L2)
+AS
+FV 
+taker agressif (FV)
+
+modifier AS pour avoir un spread un peu plus large, mais par contre il faut
+que gamma soit positif pour ne jamais atteindre la limite de 80
+
+peut-être que la calibration MLE n'est pas si bonne 

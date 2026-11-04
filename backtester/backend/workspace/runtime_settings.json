@@ -1,0 +1,8 @@
+{
+  "max_concurrent_runs": 2,
+  "cleanup_temp_traders": true,
+  "max_optimization_combos": 500,
+  "max_total_runs": 10000,
+  "cpu_limit": 2,
+  "ram_limit_mb": 8192
+}

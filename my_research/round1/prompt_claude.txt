@@ -1,0 +1,56 @@
+Cool, le script fonctionne.
+
+
+
+Quels sont les paramètres qu'il est possible de calibrer de manière non brute force, donc sans grid ni Monte Carlo, mais plutôt de manière analytique/semi-analytique par maximum de vraisemblance ?
+
+
+
+Ensuite, peux-tu me faire un script qui calibre ces paramètres spécifiques ?
+
+
+
+Voici les données de marché (price et quantity correspondent aux trades exécutés) :
+
+
+
+>>> merged
+
+       timestamp  bid_price_1  bid_volume_1  ...  ask_volume_3  price  quantity
+
+0            0.0          NaN           NaN  ...           NaN    NaN       NaN
+
+1          100.0       9992.0          15.0  ...           NaN    NaN       NaN
+
+2          200.0       9992.0          15.0  ...           NaN    NaN       NaN
+
+3          300.0       9992.0          13.0  ...           NaN    NaN       NaN
+
+4          400.0       9992.0          15.0  ...           NaN    NaN       NaN
+
+...          ...          ...           ...  ...           ...    ...       ...
+
+29959  2999500.0      10000.0          13.0  ...           NaN    NaN       NaN
+
+29960  2999600.0      10000.0          14.0  ...           NaN    NaN       NaN
+
+29961  2999700.0      10000.0          11.0  ...           NaN    NaN       NaN
+
+29962  2999800.0          NaN           NaN  ...           NaN    NaN       NaN
+
+29963  2999900.0       9998.0          21.0  ...           NaN    NaN       NaN
+
+[29964 rows x 15 columns]
+
+>>> merged.columns
+
+Index(['timestamp', 'bid_price_1', 'bid_volume_1', 'bid_price_2',
+
+       'bid_volume_2', 'bid_price_3', 'bid_volume_3', 'ask_price_1',
+
+       'ask_volume_1', 'ask_price_2', 'ask_volume_2', 'ask_price_3',
+
+       'ask_volume_3', 'price', 'quantity'],
+
+      dtype='str')
+

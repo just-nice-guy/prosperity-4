@@ -1,0 +1,27 @@
+[project]
+name = "prosperity4bt"
+version = "0.1.0"
+description = "Local Prosperity 4 backtester with FastAPI backend and structured artifacts"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "fastapi>=0.115.0",
+    "uvicorn>=0.30.0",
+    "pydantic>=2.8.0",
+]
+
+[project.optional-dependencies]
+dev = []
+
+[project.scripts]
+prosperity4bt = "prosperity4bt.__main__:main"
+
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-dir]
+"" = "src"

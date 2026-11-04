@@ -1,0 +1,479 @@
+{
+  "combinations": [
+    {
+      "combo_idx": 0,
+      "is_run_ids": [
+        "36822810172c",
+        "c45eb2033423",
+        "e33ff731ad3a",
+        "b32692228f4c",
+        "6b063dd6c7fe"
+      ],
+      "oos_run_id": "3c59708d10bf",
+      "overrides": {
+        "BASE_SIZE": 5,
+        "HORIZON": 10.0,
+        "QUOTE_WIDTH_MULT": 1.5
+      }
+    },
+    {
+      "combo_idx": 1,
+      "is_run_ids": [
+        "c1837b2d3dbf",
+        "1886bba8ba66",
+        "71e904133452",
+        "69b37f246570",
+        "560422d23ff8"
+      ],
+      "oos_run_id": "8405077cb913",
+      "overrides": {
+        "BASE_SIZE": 5,
+        "HORIZON": 15.0,
+        "QUOTE_WIDTH_MULT": 1.5
+      }
+    },
+    {
+      "combo_idx": 2,
+      "is_run_ids": [
+        "7a54d45b21ee",
+        "b8bfc65efbfc",
+        "d6cf550baf1f",
+        "4d9852cc6084",
+        "44f7da0cde8f"
+      ],
+      "oos_run_id": "110741be7928",
+      "overrides": {
+        "BASE_SIZE": 5,
+        "HORIZON": 20.0,
+        "QUOTE_WIDTH_MULT": 1.5
+      }
+    },
+    {
+      "combo_idx": 3,
+      "is_run_ids": [
+        "6d92fe2b5ab4",
+        "3d81913388fe",
+        "e71704c52cc5",
+        "518403bb4eb9",
+        "8c9af9883bcf"
+      ],
+      "oos_run_id": "199aca60e5cc",
+      "overrides": {
+        "BASE_SIZE": 5,
+        "HORIZON": 10.0,
+        "QUOTE_WIDTH_MULT": 2.0
+      }
+    },
+    {
+      "combo_idx": 4,
+      "is_run_ids": [
+        "3b8d593d6b2a",
+        "207f72816fcd",
+        "bfda93a90753",
+        "6433856a9ee9",
+        "30d397529b53"
+      ],
+      "oos_run_id": "3217f933b16c",
+      "overrides": {
+        "BASE_SIZE": 5,
+        "HORIZON": 15.0,
+        "QUOTE_WIDTH_MULT": 2.0
+      }
+    },
+    {
+      "combo_idx": 5,
+      "is_run_ids": [
+        "5a1e6951a9f3",
+        "91761d890e57",
+        "3efd5d314cda",
+        "a1dc320520b5",
+        "b76501160cde"
+      ],
+      "oos_run_id": "dfec86ce2412",
+      "overrides": {
+        "BASE_SIZE": 5,
+        "HORIZON": 20.0,
+        "QUOTE_WIDTH_MULT": 2.0
+      }
+    },
+    {
+      "combo_idx": 6,
+      "is_run_ids": [
+        "a1f1c3e4862b",
+        "459b0f211ec7",
+        "d4116f382d19",
+        "f8f07d697640",
+        "d359e19a1a11"
+      ],
+      "oos_run_id": "a5cb4e9f0458",
+      "overrides": {
+        "BASE_SIZE": 5,
+        "HORIZON": 10.0,
+        "QUOTE_WIDTH_MULT": 2.5
+      }
+    },
+    {
+      "combo_idx": 7,
+      "is_run_ids": [
+        "4a4aafb7d3db",
+        "45018539eb37",
+        "7b417253b23e",
+        "ea76a02ab63c",
+        "b11668ee5282"
+      ],
+      "oos_run_id": "e3fefeccb582",
+      "overrides": {
+        "BASE_SIZE": 5,
+        "HORIZON": 15.0,
+        "QUOTE_WIDTH_MULT": 2.5
+      }
+    },
+    {
+      "combo_idx": 8,
+      "is_run_ids": [
+        "25cee96a86a7",
+        "83db3a54c7d8",
+        "d1be2d9c1e71",
+        "928cd004c2b3",
+        "a6f8b7ee0628"
+      ],
+      "oos_run_id": "a76b65c2e999",
+      "overrides": {
+        "BASE_SIZE": 5,
+        "HORIZON": 20.0,
+        "QUOTE_WIDTH_MULT": 2.5
+      }
+    },
+    {
+      "combo_idx": 9,
+      "is_run_ids": [
+        "fee3cd1f75e5",
+        "b4e0e6d332ea",
+        "c58f9cf567d6",
+        "7d3714f5164c",
+        "ef86dbd66ffc"
+      ],
+      "oos_run_id": "284cdbc4cb41",
+      "overrides": {
+        "BASE_SIZE": 10,
+        "HORIZON": 10.0,
+        "QUOTE_WIDTH_MULT": 1.5
+      }
+    },
+    {
+      "combo_idx": 10,
+      "is_run_ids": [
+        "f07c1fe5a74c",
+        "3f10a6b39df2",
+        "2df78d4fac20",
+        "d8b8e41f0db2",
+        "d8bdaafd8816"
+      ],
+      "oos_run_id": "27a7677a1b4a",
+      "overrides": {
+        "BASE_SIZE": 10,
+        "HORIZON": 15.0,
+        "QUOTE_WIDTH_MULT": 1.5
+      }
+    },
+    {
+      "combo_idx": 11,
+      "is_run_ids": [
+        "acd7e39172f6",
+        "d2cef2053b7f",
+        "0cc7e2bf5ba1",
+        "e30e457f5f5d",
+        "0add9b4e67a8"
+      ],
+      "oos_run_id": "52231f9e81f1",
+      "overrides": {
+        "BASE_SIZE": 10,
+        "HORIZON": 20.0,
+        "QUOTE_WIDTH_MULT": 1.5
+      }
+    },
+    {
+      "combo_idx": 12,
+      "is_run_ids": [
+        "722cf99846d7",
+        "6bd4b35d863c",
+        "da64183de053",
+        "5fe7fe97739d",
+        "9eed7a1ea82b"
+      ],
+      "oos_run_id": "aafe52318aa6",
+      "overrides": {
+        "BASE_SIZE": 10,
+        "HORIZON": 10.0,
+        "QUOTE_WIDTH_MULT": 2.0
+      }
+    },
+    {
+      "combo_idx": 13,
+      "is_run_ids": [
+        "aefd0473b439",
+        "8b586091d194",
+        "a3ad24cc8f58",
+        "0545f4b69b66",
+        "2e05339751c4"
+      ],
+      "oos_run_id": "77cbc028c880",
+      "overrides": {
+        "BASE_SIZE": 10,
+        "HORIZON": 15.0,
+        "QUOTE_WIDTH_MULT": 2.0
+      }
+    },
+    {
+      "combo_idx": 14,
+      "is_run_ids": [
+        "5bc7a245e144",
+        "adc32302ed4e",
+        "67332e23f354",
+        "7729acf848d3",
+        "6c2f1459ad00"
+      ],
+      "oos_run_id": "e9d88cf9bc1b",
+      "overrides": {
+        "BASE_SIZE": 10,
+        "HORIZON": 20.0,
+        "QUOTE_WIDTH_MULT": 2.0
+      }
+    },
+    {
+      "combo_idx": 15,
+      "is_run_ids": [
+        "bc5ce750b822",
+        "344106ec92ab",
+        "deba352d30e7",
+        "bc33f11140ee",
+        "7941c97bb9df"
+      ],
+      "oos_run_id": "c65e0b6769bb",
+      "overrides": {
+        "BASE_SIZE": 10,
+        "HORIZON": 10.0,
+        "QUOTE_WIDTH_MULT": 2.5
+      }
+    },
+    {
+      "combo_idx": 16,
+      "is_run_ids": [
+        "a6f493c649d4",
+        "1c3e176199f5",
+        "93f878d65066",
+        "7d67d5a2d5bf",
+        "a713f9f42fc5"
+      ],
+      "oos_run_id": "5f7ac5f01e74",
+      "overrides": {
+        "BASE_SIZE": 10,
+        "HORIZON": 15.0,
+        "QUOTE_WIDTH_MULT": 2.5
+      }
+    },
+    {
+      "combo_idx": 17,
+      "is_run_ids": [
+        "478cab84ae37",
+        "0703bd796f39",
+        "7a8fe88b93b8",
+        "a01f33948c00",
+        "cdcf05fe123c"
+      ],
+      "oos_run_id": "37c7226719e1",
+      "overrides": {
+        "BASE_SIZE": 10,
+        "HORIZON": 20.0,
+        "QUOTE_WIDTH_MULT": 2.5
+      }
+    },
+    {
+      "combo_idx": 18,
+      "is_run_ids": [
+        "74840db5178d",
+        "f65a00e797a6",
+        "85e808a21944",
+        "ea774d2e2b8a",
+        "e0937fdc1f71"
+      ],
+      "oos_run_id": "eb99c393cdcc",
+      "overrides": {
+        "BASE_SIZE": 15,
+        "HORIZON": 10.0,
+        "QUOTE_WIDTH_MULT": 1.5
+      }
+    },
+    {
+      "combo_idx": 19,
+      "is_run_ids": [
+        "f22516eab868",
+        "9aef9cfced6b",
+        "d77c6d6f1353",
+        "4dc972ccc589",
+        "63e454a2e3ea"
+      ],
+      "oos_run_id": "410d5b0e7b0f",
+      "overrides": {
+        "BASE_SIZE": 15,
+        "HORIZON": 15.0,
+        "QUOTE_WIDTH_MULT": 1.5
+      }
+    },
+    {
+      "combo_idx": 20,
+      "is_run_ids": [
+        "091473cb4af8",
+        "276e23189b8a",
+        "6705c543c13f",
+        "51e2a1919a8e",
+        "f4598e26ace7"
+      ],
+      "oos_run_id": "f0dff68e9ba7",
+      "overrides": {
+        "BASE_SIZE": 15,
+        "HORIZON": 20.0,
+        "QUOTE_WIDTH_MULT": 1.5
+      }
+    },
+    {
+      "combo_idx": 21,
+      "is_run_ids": [
+        "1a157b493bc9",
+        "e9d6f9b87666",
+        "db9b338c580c",
+        "e88455b39481",
+        "711675cf63d9"
+      ],
+      "oos_run_id": "4bd257e621b8",
+      "overrides": {
+        "BASE_SIZE": 15,
+        "HORIZON": 10.0,
+        "QUOTE_WIDTH_MULT": 2.0
+      }
+    },
+    {
+      "combo_idx": 22,
+      "is_run_ids": [
+        "b115a79f300a",
+        "d691443ffbe7",
+        "8ba7111ddc27",
+        "fc7e9b4fdc0b",
+        "1c9e56db88e5"
+      ],
+      "oos_run_id": "b233f4b96f7c",
+      "overrides": {
+        "BASE_SIZE": 15,
+        "HORIZON": 15.0,
+        "QUOTE_WIDTH_MULT": 2.0
+      }
+    },
+    {
+      "combo_idx": 23,
+      "is_run_ids": [
+        "6bf58289e831",
+        "c25143ff5bc7",
+        "ca7274e0bdff",
+        "e86d48578377",
+        "16c421411b28"
+      ],
+      "oos_run_id": "e756001e4411",
+      "overrides": {
+        "BASE_SIZE": 15,
+        "HORIZON": 20.0,
+        "QUOTE_WIDTH_MULT": 2.0
+      }
+    },
+    {
+      "combo_idx": 24,
+      "is_run_ids": [
+        "7daeb01c0caa",
+        "84d9fbad3bc0",
+        "dea0468f361f",
+        "1097f57edbe6",
+        "0d710693e940"
+      ],
+      "oos_run_id": "2f7527bb77a5",
+      "overrides": {
+        "BASE_SIZE": 15,
+        "HORIZON": 10.0,
+        "QUOTE_WIDTH_MULT": 2.5
+      }
+    },
+    {
+      "combo_idx": 25,
+      "is_run_ids": [
+        "8ef562808c4d",
+        "9c8f2efe7007",
+        "b6de6ab62a11",
+        "3e7797d1cfae",
+        "6475132dbfcf"
+      ],
+      "oos_run_id": "45b88cd8634f",
+      "overrides": {
+        "BASE_SIZE": 15,
+        "HORIZON": 15.0,
+        "QUOTE_WIDTH_MULT": 2.5
+      }
+    },
+    {
+      "combo_idx": 26,
+      "is_run_ids": [
+        "cca6dae3cb33",
+        "1c5e7c362f75",
+        "c35aa9b3ef6e",
+        "0ea454f156e1",
+        "998726262555"
+      ],
+      "oos_run_id": "47ef36b67bbc",
+      "overrides": {
+        "BASE_SIZE": 15,
+        "HORIZON": 20.0,
+        "QUOTE_WIDTH_MULT": 2.5
+      }
+    }
+  ],
+  "cpcv_k": 1,
+  "cpcv_n": 5,
+  "cpcv_paths_per_combo": 5,
+  "created_at": "2026-04-25T18:10:46.413221+00:00",
+  "embargo_pct": 0.01,
+  "is_fraction": 0.7,
+  "is_ticks": 21000,
+  "matching_mode": "prosperity",
+  "min_trades": 5,
+  "objective": "mean_pnl",
+  "oos_ticks": 9000,
+  "opt_id": "36526767f60f",
+  "parameters": [
+    {
+      "max_value": 15.0,
+      "min_value": 5.0,
+      "name": "BASE_SIZE",
+      "step": 5.0,
+      "type": "int"
+    },
+    {
+      "max_value": 2.5,
+      "min_value": 1.5,
+      "name": "QUOTE_WIDTH_MULT",
+      "step": 0.5,
+      "type": "float"
+    },
+    {
+      "max_value": 20.0,
+      "min_value": 10.0,
+      "name": "HORIZON",
+      "step": 5.0,
+      "type": "float"
+    }
+  ],
+  "purge_groups": 1,
+  "search_budget": 300,
+  "search_method": "grid",
+  "status": "completed",
+  "total_combinations": 27,
+  "total_runs": 162,
+  "total_ticks": 30000,
+  "trader_path": "/home/user/projet/prosperity_4/my_research/round3/OU3.py"
+}

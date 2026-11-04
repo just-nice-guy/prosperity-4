@@ -1,0 +1,36 @@
+50 actifs
+10 catégories de 5 produits chacune
+
+idée : tendance, mean reversion, spread en pourcentage
+
+limite 10
+
+partout spread en pourcentage
+
+catégories :
+
+galaxy sounds:
+black holes: tendance générale haussière + tendance intermédiaire + vol qui a l'air faible
++ spread qui augmente avec le temps (après, j'ai l'impression que le spread en pourcentage du prix reste fixe, potentiellement exploitable)
+dark matter: mean reversion générale + tendance intermédiaire compliquée + vol plus forte
+planetary rings: je ne sais pas si tendance ou mean reversion, tendance intermédiaire + vol faible
+solar flames: mean reverting (on dirait que les plus hauts et les plus bas se resserrent) + tendance intermédiaire + vol plus forte
+solar winds: je ne sais pas + tendance intermédiaire + vol moyenne
+
+microchip:
+circle: grosse tendance + pas de tendance intermédiaire + vol moyenne-basse
+oval: tendance générale baissière + pas de tendance intermédiaire + vol faible
+rectangle: tendance ?? + micro ?? + vol moyenne
+square: tendance + micro ?? + vol moyenne-forte
+triangle: je ne sais pas + mean reversion au début puis tendance + vol moyenne
+
+oxygen shake:
+chocolate: je ne sais pas + je ne sais pas + vol forte
+evening breath: mean reversion + je ne sais pas + vol forte
+garlic: tendance générale haussière + pas de micro + vol moyenne
+mint: je ne sais pas + je ne sais pas + vol moyenne ou forte
+morning breath: je ne sais pas + je ne sais pas + vol forte-moyenne
+
+panel:
+1x2: je ne sais pas + micro tendance + vol forte
+

@@ -1,0 +1,1715 @@
+Contexte : je participe à une compétition de trading algorithmique organisée par IMC (Prosperity 4).
+
+Pour cet actif, j'avais fait cette stratégie, mais je voudrais que tu analyses les données de marché pour trouver d'autres effets : par exemple, à chaque trade on sait qui en est l'auteur, et vu que certains gagnent du PnL et d'autres en perdent, on pourrait utiliser ces informations pour améliorer la stratégie.
+
+
+Voici ma stratégie précédente :
+
+# Market Making Mean-Reversion avec Microprice, OU et Avellaneda–Stoikov
+
+## 1. Objectif général
+
+La stratégie cherche à faire du market making sur un actif supposé mean-reverting.
+
+L’idée centrale est :
+
+\[
+\text{carnet d'ordres}
+\rightarrow
+\text{microprice}
+\rightarrow
+\text{processus OU}
+\rightarrow
+\text{fair price}
+\rightarrow
+\text{inventaire cible}
+\rightarrow
+\text{prix de réservation}
+\rightarrow
+\text{quotes maker/taker}
+\]
+
+La stratégie ne cherche pas à rester neutre en inventaire. Elle cherche à avoir :
+
+\[
+q_t > 0 \quad \text{si le prix est sous sa moyenne}
+\]
+
+et :
+
+\[
+q_t < 0 \quad \text{si le prix est au-dessus de sa moyenne}
+\]
+
+---
+
+# 2. Données du carnet
+
+À chaque instant \(t\), on observe un carnet d’ordres avec :
+
+\[
+b_t = \text{best bid}
+\]
+
+\[
+a_t = \text{best ask}
+\]
+
+\[
+V^b_t = \text{volume au best bid}
+\]
+
+\[
+V^a_t = \text{volume au best ask}
+\]
+
+Le mid-price est :
+
+\[
+S_t = \frac{a_t+b_t}{2}
+\]
+
+Le spread est :
+
+\[
+s_t = a_t-b_t
+\]
+
+---
+
+# 3. Microprice classique
+
+Le microprice classique est défini par :
+
+\[
+M_t =
+\frac{a_t V^b_t + b_t V^a_t}{V^b_t+V^a_t}
+\]
+
+Cette formule donne un prix plus informatif que le mid-price, car elle tient compte du déséquilibre de liquidité au meilleur bid et au meilleur ask.
+
+Si :
+
+\[
+V^b_t > V^a_t
+\]
+
+alors :
+
+\[
+M_t > S_t
+\]
+
+ce qui indique une pression acheteuse.
+
+Si :
+
+\[
+V^a_t > V^b_t
+\]
+
+alors :
+
+\[
+M_t < S_t
+\]
+
+ce qui indique une pression vendeuse.
+
+---
+
+# 4. Microprice protégé
+
+On peut construire un microprice plus robuste en utilisant plusieurs niveaux du carnet.
+
+Soient les niveaux bid et ask :
+
+\[
+b_{t,1} > b_{t,2} > \dots > b_{t,n}
+\]
+
+\[
+a_{t,1} < a_{t,2} < \dots < a_{t,n}
+\]
+
+avec les volumes associés :
+
+\[
+V^b_{t,i}
+\]
+
+\[
+V^a_{t,i}
+\]
+
+On définit un déséquilibre par niveau :
+
+\[
+D_{t,i} = V^b_{t,i} - V^a_{t,i}
+\]
+
+On retient les niveaux approximativement équilibrés :
+
+\[
+\mathcal{I}_t =
+\left\{
+i : |D_{t,i}| \leq \varepsilon
+\right\}
+\]
+
+où :
+
+\[
+\varepsilon > 0
+\]
+
+est une tolérance de déséquilibre.
+
+Pour chaque niveau équilibré, on définit un prix local :
+
+\[
+P_{t,i} = \frac{b_{t,i}+a_{t,i}}{2}
+\]
+
+Puis on définit un microprice protégé par moyenne pondérée :
+
+\[
+M_t^{prot}
+=
+\frac{
+\sum_{i \in \mathcal{I}_t}
+P_{t,i} e^{-w r(i)}
+}{
+\sum_{i \in \mathcal{I}_t}
+e^{-w r(i)}
+}
+\]
+
+où :
+
+\[
+w > 0
+\]
+
+contrôle la décroissance des poids, et \(r(i)\) est le rang du niveau équilibré dans l’ensemble retenu.
+
+Si aucun niveau équilibré n’est disponible :
+
+\[
+\mathcal{I}_t = \varnothing
+\]
+
+on utilise un fallback :
+
+\[
+M_t =
+\begin{cases}
+M_{t-1}, & \text{si } M_{t-1} \text{ existe} \\
+S_t, & \text{sinon}
+\end{cases}
+\]
+
+Dans la suite, on note simplement :
+
+\[
+M_t
+\]
+
+le microprice utilisé par la stratégie.
+
+---
+
+# 5. Hypothèse de mean reversion
+
+On suppose que le microprice suit un processus d’Ornstein–Uhlenbeck :
+
+\[
+dM_t = \kappa(\mu - M_t)dt + \sigma dW_t
+\]
+
+avec :
+
+\[
+\kappa > 0
+\]
+
+\[
+\mu = \text{moyenne long terme du microprice}
+\]
+
+\[
+\sigma = \text{volatilité instantanée}
+\]
+
+\[
+W_t = \text{mouvement brownien standard}
+\]
+
+Le paramètre \(\kappa\) est la vitesse de retour à la moyenne.
+
+La demi-vie du retour à la moyenne est :
+
+\[
+t_{1/2} = \frac{\ln(2)}{\kappa}
+\]
+
+---
+
+# 6. Version discrète du processus OU
+
+Sur des ticks discrets, avec un pas de temps :
+
+\[
+\Delta t
+\]
+
+le processus OU devient :
+
+\[
+M_t =
+\mu + \phi(M_{t-1}-\mu) + \varepsilon_t
+\]
+
+avec :
+
+\[
+\phi = e^{-\kappa \Delta t}
+\]
+
+et :
+
+\[
+\varepsilon_t \sim \mathcal{N}(0,\sigma_\varepsilon^2)
+\]
+
+La variance du choc discret est :
+
+\[
+\sigma_\varepsilon^2
+=
+\sigma_\infty^2(1-\phi^2)
+\]
+
+où :
+
+\[
+\sigma_\infty^2 =
+\frac{\sigma^2}{2\kappa}
+\]
+
+est la variance stationnaire du processus OU.
+
+Donc :
+
+\[
+\sigma_\infty^2 =
+\frac{\sigma_\varepsilon^2}{1-\phi^2}
+\]
+
+---
+
+# 7. Estimation de la moyenne long terme
+
+La stratégie utilise une moyenne historique avec prior.
+
+On initialise :
+
+\[
+\mu_0 = \mu_{fixe}
+\]
+
+avec un poids initial :
+
+\[
+N_\mu
+\]
+
+Puis, après \(t\) observations de microprice :
+
+\[
+\mu_t =
+\frac{
+N_\mu \mu_{fixe}
++
+\sum_{i=1}^{t} M_i
+}{
+N_\mu + t
+}
+\]
+
+Cette construction rend la moyenne stable au début et progressivement plus dépendante des observations.
+
+---
+
+# 8. Estimation de la variance OU
+
+Le résidu OU discret est :
+
+\[
+\varepsilon_t =
+M_t -
+\left[
+\mu_t + \phi(M_{t-1}-\mu_t)
+\right]
+\]
+
+On estime la variance empirique des résidus :
+
+\[
+\widehat{\sigma}_{\varepsilon,t}^2
+\]
+
+Mais au début, l’échantillon est trop court. On mélange donc une variance fixe calibrée avec la variance empirique.
+
+Soit :
+
+\[
+\sigma_{\infty,fixe}^2
+\]
+
+une variance stationnaire historique calibrée.
+
+Alors la variance initiale des résidus est :
+
+\[
+\sigma_{\varepsilon,fixe}^2
+=
+\sigma_{\infty,fixe}^2(1-e^{-2\kappa \Delta t})
+\]
+
+On définit un poids progressif :
+
+\[
+\omega_t =
+\min\left(1,\frac{N_{\varepsilon,t}}{N_{var}}\right)
+\]
+
+La variance utilisée est :
+
+\[
+\sigma_{\varepsilon,t}^2
+=
+(1-\omega_t)\sigma_{\varepsilon,fixe}^2
++
+\omega_t \widehat{\sigma}_{\varepsilon,t}^2
+\]
+
+Puis :
+
+\[
+\sigma_{\infty,t}^2 =
+\frac{
+\sigma_{\varepsilon,t}^2
+}{
+1-e^{-2\kappa \Delta t}
+}
+\]
+
+et :
+
+\[
+\sigma_{\infty,t}
+=
+\sqrt{\sigma_{\infty,t}^2}
+\]
+
+---
+
+# 9. Prévision OU du microprice
+
+À horizon \(h\), l’espérance conditionnelle du microprice est :
+
+\[
+F_t(h)
+=
+\mathbb{E}_t[M_{t+h}]
+=
+\mu_t + e^{-\kappa h}(M_t-\mu_t)
+\]
+
+On appelle :
+
+\[
+F_t(h)
+\]
+
+le fair price de la stratégie.
+
+Le signal directionnel est :
+
+\[
+\alpha_t = F_t(h)-M_t
+\]
+
+Or :
+
+\[
+\alpha_t
+=
+(1-e^{-\kappa h})(\mu_t-M_t)
+\]
+
+Donc :
+
+\[
+M_t < \mu_t
+\Rightarrow
+\alpha_t > 0
+\]
+
+et :
+
+\[
+M_t > \mu_t
+\Rightarrow
+\alpha_t < 0
+\]
+
+---
+
+# 10. Z-score du microprice
+
+On mesure l’écart relatif à la moyenne par :
+
+\[
+z_t =
+\frac{M_t-\mu_t}{\sigma_{\infty,t}}
+\]
+
+Si :
+
+\[
+z_t < 0
+\]
+
+le microprice est sous sa moyenne.
+
+Si :
+
+\[
+z_t > 0
+\]
+
+le microprice est au-dessus de sa moyenne.
+
+---
+
+# 11. Inventaire cible
+
+La stratégie définit une cible d’inventaire :
+
+\[
+q_t^\star =
+-Q_{\max}
+\tanh(\eta z_t)
+\]
+
+avec :
+
+\[
+Q_{\max} = \text{limite maximale d'inventaire}
+\]
+
+\[
+\eta > 0
+\]
+
+qui contrôle l’agressivité de l’inventaire cible.
+
+Si :
+
+\[
+M_t < \mu_t
+\]
+
+alors :
+
+\[
+z_t < 0
+\]
+
+donc :
+
+\[
+q_t^\star > 0
+\]
+
+La stratégie veut être long.
+
+Si :
+
+\[
+M_t > \mu_t
+\]
+
+alors :
+
+\[
+z_t > 0
+\]
+
+donc :
+
+\[
+q_t^\star < 0
+\]
+
+La stratégie veut être short.
+
+La fonction \(\tanh\) impose une saturation naturelle :
+
+\[
+q_t^\star \in [-Q_{\max},Q_{\max}]
+\]
+
+---
+
+# 12. Variance conditionnelle à horizon \(h\)
+
+La variance OU à horizon \(h\) est :
+
+\[
+Var_t(M_{t+h})
+=
+\sigma_{\infty,t}^2
+\left(
+1-e^{-2\kappa h}
+\right)
+\]
+
+On note :
+
+\[
+Var_h =
+\sigma_{\infty,t}^2
+\left(
+1-e^{-2\kappa h}
+\right)
+\]
+
+Cette quantité mesure le risque de variation du microprice sur l’horizon de prévision.
+
+---
+
+# 13. Prix de réservation
+
+La stratégie adapte Avellaneda–Stoikov en utilisant un inventaire cible non nul.
+
+Le prix de réservation est :
+
+\[
+r_t =
+F_t(h)
+-
+\gamma Var_h(q_t-q_t^\star)
+\]
+
+avec :
+
+\[
+q_t = \text{inventaire actuel}
+\]
+
+\[
+\gamma > 0
+\]
+
+qui mesure l’aversion au risque d’inventaire.
+
+Si :
+
+\[
+q_t > q_t^\star
+\]
+
+alors :
+
+\[
+q_t-q_t^\star > 0
+\]
+
+donc :
+
+\[
+r_t < F_t(h)
+\]
+
+La stratégie baisse son prix de réservation pour favoriser les ventes.
+
+Si :
+
+\[
+q_t < q_t^\star
+\]
+
+alors :
+
+\[
+q_t-q_t^\star < 0
+\]
+
+donc :
+
+\[
+r_t > F_t(h)
+\]
+
+La stratégie monte son prix de réservation pour favoriser les achats.
+
+---
+
+# 14. Intensité de fill Avellaneda–Stoikov
+
+On suppose que l’intensité d’exécution d’une quote à distance \(\delta\) suit :
+
+\[
+\lambda(\delta) = A e^{-k\delta}
+\]
+
+avec :
+
+\[
+A > 0
+\]
+
+\[
+k > 0
+\]
+
+Le paramètre \(k\) mesure la vitesse à laquelle la probabilité de fill diminue quand on éloigne la quote.
+
+Si :
+
+\[
+k \text{ est élevé}
+\]
+
+alors les fills diminuent rapidement avec la distance.
+
+Si :
+
+\[
+k \text{ est faible}
+\]
+
+alors les fills restent possibles même avec une quote plus éloignée.
+
+---
+
+# 15. Demi-spread optimal
+
+Dans le cadre Avellaneda–Stoikov, le demi-spread théorique est :
+
+\[
+\delta_t^{AS}
+=
+\frac{1}{\gamma}
+\ln\left(1+\frac{\gamma}{k}\right)
++
+\frac{\gamma}{2}Var_h
+\]
+
+La stratégie ajoute un multiplicateur de largeur :
+
+\[
+\delta_t =
+m_\delta \delta_t^{AS}
+\]
+
+avec :
+
+\[
+m_\delta = QUOTE\_WIDTH\_MULT
+\]
+
+Si :
+
+\[
+m_\delta > 1
+\]
+
+les quotes sont plus larges.
+
+Si :
+
+\[
+m_\delta < 1
+\]
+
+les quotes sont plus serrées.
+
+La distance finale est arrondie au tick :
+
+\[
+\Delta_t = \lceil \delta_t \rceil
+\]
+
+et contrainte par :
+
+\[
+\Delta_t \geq \Delta_{\min}
+\]
+
+---
+
+# 16. Quotes maker
+
+Les quotes théoriques sont :
+
+\[
+p_t^{bid} = r_t - \Delta_t
+\]
+
+\[
+p_t^{ask} = r_t + \Delta_t
+\]
+
+Pour éviter de croiser le carnet :
+
+\[
+p_t^{bid} < a_t
+\]
+
+\[
+p_t^{ask} > b_t
+\]
+
+La stratégie conserve donc des quotes maker en imposant :
+
+\[
+p_t^{bid}
+=
+\min(r_t-\Delta_t,\ a_t-1)
+\]
+
+\[
+p_t^{ask}
+=
+\max(r_t+\Delta_t,\ b_t+1)
+\]
+
+lorsque le spread est suffisamment large.
+
+Quand le spread est étroit, elle reste au plus au BBO :
+
+\[
+p_t^{bid}
+=
+\min(r_t-\Delta_t,\ b_t)
+\]
+
+\[
+p_t^{ask}
+=
+\max(r_t+\Delta_t,\ a_t)
+\]
+
+---
+
+# 17. Ordres taker
+
+La stratégie peut aussi prendre la liquidité si le fair price justifie une exécution immédiate.
+
+Achat taker si :
+
+\[
+F_t(h) > a_t + c
+\]
+
+et :
+
+\[
+q_t < q_t^\star
+\]
+
+Vente taker si :
+
+\[
+F_t(h) < b_t - c
+\]
+
+et :
+
+\[
+q_t > q_t^\star
+\]
+
+où :
+
+\[
+c = TAKER\_EDGE
+\]
+
+est le seuil minimal d’edge requis pour prendre la liquidité.
+
+La taille taker d’achat est :
+
+\[
+L_t^{taker,buy}
+=
+\min
+\left(
+\lfloor q_t^\star-q_t \rfloor,
+Q_{\max}-q_t,
+V^a_t
+\right)
+\]
+
+La taille taker de vente est :
+
+\[
+L_t^{taker,sell}
+=
+\min
+\left(
+\lfloor q_t-q_t^\star \rfloor,
+Q_{\max}+q_t,
+V^b_t
+\right)
+\]
+
+---
+
+# 18. Inventaire prévu après takers
+
+Après les éventuels takers, on définit :
+
+\[
+\widetilde{q}_t
+\]
+
+comme l’inventaire prévu.
+
+Le prix de réservation maker est ensuite calculé avec :
+
+\[
+\widetilde{q}_t
+\]
+
+et non avec l’ancien inventaire.
+
+Donc :
+
+\[
+r_t =
+F_t(h)
+-
+\gamma Var_h(\widetilde{q}_t-q_t^\star)
+\]
+
+Cela rend les quotes maker cohérentes avec l’inventaire attendu après exécution agressive.
+
+---
+
+# 19. Sizing des ordres maker
+
+On définit l’écart d’inventaire :
+
+\[
+D_t = q_t^\star-\widetilde{q}_t
+\]
+
+Puis l’écart normalisé :
+
+\[
+d_t =
+\frac{D_t}{Q_{\max}}
+\]
+
+La taille maker au bid est :
+
+\[
+L_t^{bid}
+=
+L_0
+\left[
+1+\theta d_t
+\right]_+
+\]
+
+La taille maker à l’ask est :
+
+\[
+L_t^{ask}
+=
+L_0
+\left[
+1-\theta d_t
+\right]_+
+\]
+
+avec :
+
+\[
+L_0 = BASE\_SIZE
+\]
+
+\[
+\theta = THETA\_SIZE
+\]
+
+\[
+[x]_+ = \max(x,0)
+\]
+
+Si :
+
+\[
+D_t > 0
+\]
+
+alors :
+
+\[
+L_t^{bid} > L_0
+\]
+
+et :
+
+\[
+L_t^{ask} < L_0
+\]
+
+La stratégie veut acheter davantage.
+
+Si :
+
+\[
+D_t < 0
+\]
+
+alors :
+
+\[
+L_t^{bid} < L_0
+\]
+
+et :
+
+\[
+L_t^{ask} > L_0
+\]
+
+La stratégie veut vendre davantage.
+
+---
+
+# 20. Contraintes d’inventaire
+
+Les tailles envoyées sont contraintes par la capacité restante :
+
+\[
+L_t^{bid}
+\leq
+Q_{\max}-\widetilde{q}_t
+\]
+
+\[
+L_t^{ask}
+\leq
+Q_{\max}+\widetilde{q}_t
+\]
+
+Ainsi :
+
+\[
+q_t \in [-Q_{\max},Q_{\max}]
+\]
+
+---
+
+# 21. PnL conceptuel
+
+Le PnL d’un ordre maker au bid est approximativement :
+
+\[
+PnL^{bid}
+=
+F_t(h)-p_t^{bid}
+\]
+
+Le PnL d’un ordre maker à l’ask est approximativement :
+
+\[
+PnL^{ask}
+=
+p_t^{ask}-F_t(h)
+\]
+
+Le PnL d’un achat taker est approximativement :
+
+\[
+PnL^{taker,buy}
+=
+F_t(h)-a_t
+\]
+
+Le PnL d’une vente taker est approximativement :
+
+\[
+PnL^{taker,sell}
+=
+b_t-F_t(h)
+\]
+
+La stratégie cherche donc à maximiser :
+
+\[
+\mathbb{E}[PnL]
+\]
+
+sous contraintes :
+
+\[
+|q_t| \leq Q_{\max}
+\]
+
+\[
+\text{drawdown contrôlé}
+\]
+
+\[
+\text{fill rate suffisant}
+\]
+
+\[
+\text{risque d'inventaire maîtrisé}
+\]
+
+---
+
+# 22. Rôle des paramètres
+
+## Paramètres de marché
+
+Les paramètres suivants décrivent le marché et ne doivent pas être modifiés directement pour optimiser le PnL :
+
+\[
+\kappa
+\]
+
+\[
+\mu_{fixe}
+\]
+
+\[
+\sigma_{\infty,fixe}^2
+\]
+
+\[
+k
+\]
+
+\[
+\Delta t
+\]
+
+Ces paramètres servent à décrire :
+
+\[
+\text{mean reversion}
+\]
+
+\[
+\text{volatilité stationnaire}
+\]
+
+\[
+\text{intensité de fill}
+\]
+
+---
+
+## Paramètres de politique
+
+Les paramètres suivants contrôlent le comportement de trading :
+
+\[
+h
+\]
+
+\[
+L_0
+\]
+
+\[
+\eta
+\]
+
+\[
+\theta
+\]
+
+\[
+\gamma
+\]
+
+\[
+m_\delta
+\]
+
+\[
+c
+\]
+
+Ils contrôlent respectivement :
+
+\[
+\text{force du signal}
+\]
+
+\[
+\text{taille de base}
+\]
+
+\[
+\text{agressivité de l'inventaire cible}
+\]
+
+\[
+\text{asymétrie du sizing}
+\]
+
+\[
+\text{aversion au risque d'inventaire}
+\]
+
+\[
+\text{largeur des quotes}
+\]
+
+\[
+\text{seuil taker}
+\]
+
+---
+
+# 23. Logique complète de décision
+
+À chaque tick :
+
+\[
+\text{observer le carnet}
+\]
+
+\[
+\text{calculer } M_t
+\]
+
+\[
+\text{mettre à jour } \mu_t
+\]
+
+\[
+\text{mettre à jour } \sigma_{\infty,t}
+\]
+
+\[
+\text{calculer } F_t(h)
+\]
+
+\[
+\text{calculer } z_t
+\]
+
+\[
+\text{calculer } q_t^\star
+\]
+
+\[
+\text{envoyer taker si } F_t(h) \text{ traverse le BBO avec edge}
+\]
+
+\[
+\text{mettre à jour } \widetilde{q}_t
+\]
+
+\[
+\text{calculer } r_t
+\]
+
+\[
+\text{calculer } \Delta_t
+\]
+
+\[
+\text{placer } p_t^{bid}=r_t-\Delta_t
+\]
+
+\[
+\text{placer } p_t^{ask}=r_t+\Delta_t
+\]
+
+\[
+\text{dimensionner les ordres selon } q_t^\star-\widetilde{q}_t
+\]
+
+---
+
+# 24. Résumé mathématique final
+
+La stratégie est définie par :
+
+\[
+M_t = \text{microprice protégé du carnet}
+\]
+
+\[
+F_t(h)
+=
+\mu_t + e^{-\kappa h}(M_t-\mu_t)
+\]
+
+\[
+z_t =
+\frac{M_t-\mu_t}{\sigma_{\infty,t}}
+\]
+
+\[
+q_t^\star =
+-Q_{\max}\tanh(\eta z_t)
+\]
+
+\[
+Var_h =
+\sigma_{\infty,t}^2
+\left(
+1-e^{-2\kappa h}
+\right)
+\]
+
+\[
+r_t =
+F_t(h)
+-
+\gamma Var_h(\widetilde{q}_t-q_t^\star)
+\]
+
+\[
+\delta_t =
+m_\delta
+\left[
+\frac{1}{\gamma}
+\ln\left(1+\frac{\gamma}{k}\right)
++
+\frac{\gamma}{2}Var_h
+\right]
+\]
+
+\[
+p_t^{bid} =
+r_t-\lceil \delta_t \rceil
+\]
+
+\[
+p_t^{ask} =
+r_t+\lceil \delta_t \rceil
+\]
+
+\[
+L_t^{bid}
+=
+L_0
+\left[
+1+\theta
+\frac{q_t^\star-\widetilde{q}_t}{Q_{\max}}
+\right]_+
+\]
+
+\[
+L_t^{ask}
+=
+L_0
+\left[
+1-\theta
+\frac{q_t^\star-\widetilde{q}_t}{Q_{\max}}
+\right]_+
+\]
+
+La stratégie est donc un market maker directionnel mean-reverting, centré sur un fair price OU du microprice, avec un inventaire cible non nul et une cotation Avellaneda–Stoikov adaptée.
+
+
+Voici le code :
+
+from __future__ import annotations
+import json
+import math
+
+try:
+    from datamodel import Order, OrderDepth, TradingState  # type: ignore[import]
+except ImportError:
+    from prosperity4bt.domain.datamodel import Order, OrderDepth, TradingState  # type: ignore[import]
+
+
+PRODUCT = "HYDROGEL_PACK"
+
+# =========================
+# Risk / inventory
+# =========================
+POS_LIMIT = 200
+
+# L0 dans les maths : taille maker de référence
+BASE_SIZE = 12
+
+QUOTE_WIDTH_MULT = 2.2
+
+# =========================
+# Microprice protected
+# =========================
+W = 0.2
+MICRO_BALANCE_TOL = 1.0
+
+# =========================
+# OU parameters
+# =========================
+# vitesse de retour à la moyenne
+KAPPA = 0.0017832392
+
+# horizon de la prévision
+HORIZON = 15.0
+
+# pas de temps du modèle
+DT = 1.0
+
+# Moyenne long terme du microprice
+MU_MIN_WINDOW = 25*100
+MU_FIXE = 9991.0012009026
+
+# Variance des résidus OU
+VAR_MIN_WINDOW = 1000
+VAR_FIXE = 1022.1842605233
+
+EPS = 1e-9
+
+# =========================
+# Inventory parameters
+# =========================
+# agressivité de l'inventaire cible
+ETA_INV = 0.6
+
+# asymétrie du sizing entre bid et ask
+THETA_SIZE = 1.75
+
+# =========================
+# Avellaneda-Stoikov parameters
+# =========================
+# aversion au risque d'inventaire
+GAMMA = 0.000050
+
+# sensibilité de la probabilité de fill à la distance du quote
+AS_K = 0.355792
+
+MIN_HALF_SPREAD = 1
+
+# Pas de frais, pas d'adverse selection explicite
+TAKER_EDGE = 0.5
+
+
+# =========================
+# Precomputed constants
+# =========================
+PHI_DT = math.exp(-KAPPA * DT)
+PHI_H = math.exp(-KAPPA * HORIZON)
+
+DENOM = max(1.0 - math.exp(-2.0 * KAPPA * DT), EPS)
+OU_VAR_H_MULT = 1.0 - math.exp(-2.0 * KAPPA * HORIZON)
+
+AS_BASE_DELTA = (1.0 / GAMMA) * math.log(1.0 + GAMMA / AS_K)
+
+
+def micro_price_protected(depth: OrderDepth) -> float | None:
+    bids = sorted(depth.buy_orders.keys(), reverse=True)
+    asks = sorted(depth.sell_orders.keys())
+
+    if not bids or not asks:
+        return None
+
+    diff = []
+    difu = []
+    b_count = 0
+    a_count = 0
+
+    for i in range(min(len(bids), len(asks))):
+        pb = bids[i]
+        pa = asks[i]
+
+        vb = float(depth.buy_orders[pb])
+        va = float(abs(depth.sell_orders[pa]))
+
+        # BID
+        if vb > 0:
+            b_count += 1
+            if len(diff) < b_count:
+                diff.append(vb)
+                difu.append([[pb, vb]])
+            else:
+                diff[b_count - 1] += vb
+                difu[b_count - 1].append([pb, vb])
+
+        # ASK
+        if va > 0:
+            a_count += 1
+            if len(diff) < a_count:
+                diff.append(-va)
+                difu.append([[pa, va]])
+            else:
+                diff[a_count - 1] -= va
+                difu[a_count - 1].append([pa, va])
+
+    mi = []
+    for i in range(len(diff)):
+        if abs(diff[i]) <= MICRO_BALANCE_TOL:
+            mi.append(i)
+
+    if mi == []:
+        return None
+
+    num=0
+    den=0
+    for i in range(len(mi)-1,-1,-1):
+        num+=(difu[mi[i]][0][0]+difu[mi[i]][1][0])*0.5*math.exp(-W*(len(mi)-i))
+        den+=math.exp(-W*(len(mi)-i))
+    return num/den
+
+
+def welford_step(x: float, n: int, mean: float, M2: float) -> tuple[int, float, float]:
+    n_new = n + 1
+    delta = x - mean
+    mean_new = mean + delta / n_new
+    delta2 = x - mean_new
+    M2_new = M2 + delta * delta2
+
+    return n_new, mean_new, M2_new
+
+
+class Trader:
+    def run(self, state: TradingState) -> tuple[dict[str, list[Order]], int, str]:
+        pos = state.position.get(PRODUCT, 0)
+        depth = state.order_depths.get(PRODUCT)
+        orders: list[Order] = []
+
+        st = json.loads(state.traderData) if state.traderData else {}
+
+        if not depth or not depth.buy_orders or not depth.sell_orders:
+            buy_qty = max(0, min(POS_LIMIT, POS_LIMIT - pos))
+            sell_qty = max(0, min(POS_LIMIT, POS_LIMIT + pos))
+
+            if buy_qty > 0:
+                orders.append(Order(PRODUCT, 1, buy_qty))
+
+            if sell_qty > 0:
+                orders.append(Order(PRODUCT, 10**12, -sell_qty))
+
+            return {PRODUCT: orders}, 0, json.dumps(st)
+
+        # =========================
+        # 1. Best bid / best ask
+        # =========================
+        b_bid = max(depth.buy_orders)
+        b_ask = min(depth.sell_orders)
+
+        bid_vol = depth.buy_orders[b_bid]
+        ask_vol = -depth.sell_orders[b_ask]
+
+        spread = b_ask - b_bid
+        mid = (b_bid + b_ask) / 2.0
+
+        # =========================
+        # 2. Microprice protected
+        # =========================
+        micro = micro_price_protected(depth)
+
+        if micro is None:
+            prev_micro = st.get("prev_micro", None)
+
+            if prev_micro is None:
+                micro = mid
+            else:
+                micro = float(prev_micro)
+
+        # =========================
+        # 3. Historical mean with prior
+        # =========================
+        micro_mean = st.get("micro_mean", -1)
+        micro_counter = st.get("micro_counter", 0)
+
+        if micro_mean == -1:
+            micro_mean = MU_FIXE
+            micro_counter = MU_MIN_WINDOW
+
+        micro_counter, micro_mean, _ = welford_step(
+            float(micro),
+            int(micro_counter),
+            float(micro_mean),
+            0.0,
+        )
+
+        mu = micro_mean
+
+        # =========================
+        # 4. OU residual variance with prior
+        # =========================
+        eps_mean = float(st.get("eps_mean", 0.0))
+        eps_counter = int(st.get("eps_counter", 0))
+        eps_M2 = float(st.get("eps_M2", 0.0))
+
+        prev_micro = st.get("prev_micro", None)
+
+        if prev_micro is not None:
+            prev_micro = float(prev_micro)
+
+            expected_micro = mu + PHI_DT * (prev_micro - mu)
+            eps_ou = micro - expected_micro
+
+            eps_counter, eps_mean, eps_M2 = welford_step(
+                float(eps_ou),
+                eps_counter,
+                eps_mean,
+                eps_M2,
+            )
+
+        if eps_counter > 1:
+            var_eps_raw = max(eps_M2 / (eps_counter - 1), EPS)
+        else:
+            var_eps_raw = max(VAR_FIXE * DENOM, EPS)
+
+        w_var = min(1.0, eps_counter / VAR_MIN_WINDOW)
+
+        var_eps = (1.0 - w_var) * (VAR_FIXE * DENOM) + w_var * var_eps_raw
+
+        var_inf = var_eps / DENOM
+        sigma_inf = math.sqrt(max(var_inf, EPS))
+
+        # =========================
+        # 5. Fair price OU du microprice
+        # =========================
+        fair = mu + PHI_H * (micro - mu)
+
+        # =========================
+        # 6. Inventaire cible
+        # =========================
+        z = (micro - mu) / sigma_inf
+
+        q_star = -POS_LIMIT * math.tanh(ETA_INV * z)
+
+        # =========================
+        # 7. Variance conditionnelle OU à horizon H
+        # =========================
+        var_h = var_inf * OU_VAR_H_MULT
+
+        # =========================
+        # 8. Ordres taker
+        # =========================
+        planned_pos = pos
+
+        buy_capacity = POS_LIMIT - planned_pos
+        sell_capacity = POS_LIMIT + planned_pos
+
+        # Buy taker
+        if fair > b_ask + TAKER_EDGE and planned_pos < q_star and buy_capacity > 0:
+            desired_buy = int(math.floor(q_star - planned_pos))
+
+            qty = min(
+                desired_buy,
+                buy_capacity,
+                ask_vol,
+            )
+
+            if qty > 0:
+                orders.append(Order(PRODUCT, b_ask, qty))
+                planned_pos += qty
+
+        buy_capacity = POS_LIMIT - planned_pos
+        sell_capacity = POS_LIMIT + planned_pos
+
+        # Sell taker
+        if fair < b_bid - TAKER_EDGE and planned_pos > q_star and sell_capacity > 0:
+            desired_sell = int(math.floor(planned_pos - q_star))
+
+            qty = min(
+                desired_sell,
+                sell_capacity,
+                bid_vol,
+            )
+
+            if qty > 0:
+                orders.append(Order(PRODUCT, b_bid, -qty))
+                planned_pos -= qty
+
+        # =========================
+        # 9. Prix de réservation après takers
+        # =========================
+        reservation = fair - GAMMA * var_h * (planned_pos - q_star)
+
+        # =========================
+        # 10. Demi-spread Avellaneda-Stoikov
+        # =========================
+        theoretical_delta = AS_BASE_DELTA + 0.5 * GAMMA * var_h
+        theoretical_delta *= QUOTE_WIDTH_MULT
+
+        half_spread = max(MIN_HALF_SPREAD, int(math.ceil(theoretical_delta)))
+
+        # =========================
+        # 11. Quotes maker autour du prix de réservation
+        # =========================
+        raw_bid = int(math.floor(reservation - half_spread))
+        raw_ask = int(math.ceil(reservation + half_spread))
+
+        if spread >= 3:
+            maker_bid = min(raw_bid, b_ask - 1)
+            maker_ask = max(raw_ask, b_bid + 1)
+        else:
+            maker_bid = min(raw_bid, b_bid)
+            maker_ask = max(raw_ask, b_ask)
+
+        if maker_bid >= maker_ask:
+            maker_bid = b_bid
+            maker_ask = b_ask
+
+        # =========================
+        # 12. Sizing maker
+        # =========================
+        inv_gap = q_star - planned_pos
+        normalized_gap = inv_gap / POS_LIMIT
+
+        bid_size_float = BASE_SIZE * max(
+            0.0,
+            1.0 + THETA_SIZE * normalized_gap,
+        )
+
+        ask_size_float = BASE_SIZE * max(
+            0.0,
+            1.0 - THETA_SIZE * normalized_gap,
+        )
+
+        bid_size = int(round(bid_size_float))
+        ask_size = int(round(ask_size_float))
+
+        buy_capacity = POS_LIMIT - planned_pos
+        sell_capacity = POS_LIMIT + planned_pos
+
+        buy_qty = max(0, min(bid_size, buy_capacity))
+        sell_qty = max(0, min(ask_size, sell_capacity))
+
+        if buy_qty > 0:
+            orders.append(Order(PRODUCT, maker_bid, buy_qty))
+
+        if sell_qty > 0:
+            orders.append(Order(PRODUCT, maker_ask, -sell_qty))
+
+        # =========================
+        # 13. Sauvegarde état
+        # =========================
+        new_state = {
+            "micro_mean": micro_mean,
+            "micro_counter": micro_counter,
+            "eps_mean": eps_mean,
+            "eps_counter": eps_counter,
+            "eps_M2": eps_M2,
+            "prev_micro": micro,
+        }
+
+        return {PRODUCT: orders}, 0, json.dumps(new_state)
+
+
+Et je t'ai ajouté les données de marché.

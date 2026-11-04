@@ -1,0 +1,47 @@
+{
+  "combinations": [
+    {
+      "combo_idx": 0,
+      "is_run_ids": [
+        "2918df35a0e7",
+        "c576a3c836e5",
+        "4e629f63f637",
+        "c83ba96ae893",
+        "fbc74fb1569d"
+      ],
+      "oos_run_id": "4c5beb92aa1d",
+      "overrides": {
+        "W": 0.0
+      }
+    }
+  ],
+  "cpcv_k": 1,
+  "cpcv_n": 5,
+  "cpcv_paths_per_combo": 5,
+  "created_at": "2026-04-27T19:53:49.594774+00:00",
+  "embargo_pct": 0.01,
+  "is_fraction": 0.7,
+  "is_ticks": 21000,
+  "matching_mode": "prosperity",
+  "min_trades": 5,
+  "objective": "mean_pnl",
+  "oos_ticks": 9000,
+  "opt_id": "83e20041f5b5",
+  "parameters": [
+    {
+      "max_value": 0.01,
+      "min_value": 0.0,
+      "name": "W",
+      "step": 0.1,
+      "type": "float"
+    }
+  ],
+  "purge_groups": 1,
+  "search_budget": 30,
+  "search_method": "grid",
+  "status": "completed",
+  "total_combinations": 1,
+  "total_runs": 6,
+  "total_ticks": 30000,
+  "trader_path": "/home/user/projet/prosperity_4/my_research/round4/other_vev4500.py"
+}

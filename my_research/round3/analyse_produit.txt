@@ -1,0 +1,27 @@
+on a 2 spots + des options de strikes différents, même maturité, mais que des calls
+
+les 2 produits spot ont des genres de tendances des fois, mais ça reste mean reversion
+
+penser à faire un prix long terme OU qui a au début une valeur fixe, mais qui bouge assez lentement, par exemple
+on le fait sur une liste de 1000 ticks où au début tu mets la médiane des données de backtest, genre 10000, puis ça prendra la médiane des 1000 ticks roulants
+
+
+les options avec un strike très loin tradent à 0, donc mettre un ordre d'achat à 0
+
+
+idée arbitrage option / sous-jacent
+arbitrage forward / bornes inférieure et supérieure
+différence de prix anormale entre différents strikes (monotonie strike)
+arbitrage butterfly
+
+arbitrages d'options possibles avec les conditions de no-arbitrage
+- call = 0 ou négatif (acheter le call)
+- call > spot
+- call < valeur intrinsèque
+- call K1 < call K2 (K1<K2) monotonie strike
+- call K1 - call K2 > K2-K1 (K1<K2) vertical spread trop cher > payoff max
+- call K1 - call K2 < 0 (même chose que la monotonie strike, mais écrit comme un spread)
+- call K2 < lambda truc : arbitrage de convexité en strike, arbitrage butterfly
+etc.
+
+pb : si on est maker, on ne pourra pas forcément être taker, car on ne le saura qu'au prochain tick

@@ -1,0 +1,61 @@
+{
+  "combinations": [
+    {
+      "combo_idx": 0,
+      "is_run_ids": [
+        "f714d5f19a38",
+        "8082f98e0e3d",
+        "2699c8485947",
+        "c3f8e89e2e46",
+        "77f740446833"
+      ],
+      "oos_run_id": "6dbb62a0a431",
+      "overrides": {
+        "W": 0.2
+      }
+    },
+    {
+      "combo_idx": 1,
+      "is_run_ids": [
+        "9c3b9e953f41",
+        "71774d902b6c",
+        "90c63f271a87",
+        "fe87eed842ae",
+        "fe25d40129ed"
+      ],
+      "oos_run_id": "3a78f54a4e4f",
+      "overrides": {
+        "W": 0.25
+      }
+    }
+  ],
+  "cpcv_k": 1,
+  "cpcv_n": 5,
+  "cpcv_paths_per_combo": 5,
+  "created_at": "2026-04-27T00:19:35.118247+00:00",
+  "embargo_pct": 0.01,
+  "is_fraction": 0.7,
+  "is_ticks": 21000,
+  "matching_mode": "prosperity",
+  "min_trades": 5,
+  "objective": "mean_pnl",
+  "oos_ticks": 9000,
+  "opt_id": "ad14c66b63af",
+  "parameters": [
+    {
+      "max_value": 0.25,
+      "min_value": 0.2,
+      "name": "W",
+      "step": 0.05,
+      "type": "float"
+    }
+  ],
+  "purge_groups": 1,
+  "search_budget": 30,
+  "search_method": "grid",
+  "status": "completed",
+  "total_combinations": 2,
+  "total_runs": 12,
+  "total_ticks": 30000,
+  "trader_path": "/home/user/projet/prosperity_4/my_research/round4/other2.py"
+}

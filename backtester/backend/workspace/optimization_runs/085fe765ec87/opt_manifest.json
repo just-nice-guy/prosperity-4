@@ -1,0 +1,287 @@
+{
+  "combinations": [
+    {
+      "combo_idx": 0,
+      "is_run_ids": [
+        "45e886ef2097",
+        "9c7450168235",
+        "215c0c5ab2b2",
+        "37d920d42f64",
+        "88d70e18860e"
+      ],
+      "oos_run_id": "254305c3e820",
+      "overrides": {
+        "BASE_SIZE": 5,
+        "HORIZON": 20.0,
+        "QUOTE_WIDTH_MULT": 2.0
+      }
+    },
+    {
+      "combo_idx": 1,
+      "is_run_ids": [
+        "fe46ab272424",
+        "d65f00cee2aa",
+        "c74d2965f6ad",
+        "c9d9b7561add",
+        "bbeb73b7130b"
+      ],
+      "oos_run_id": "f998cd022ba8",
+      "overrides": {
+        "BASE_SIZE": 5,
+        "HORIZON": 40.0,
+        "QUOTE_WIDTH_MULT": 2.0
+      }
+    },
+    {
+      "combo_idx": 2,
+      "is_run_ids": [
+        "3a005306fb8c",
+        "681875c7b30b",
+        "db968dc60e3e",
+        "bc2edab3e08c",
+        "355fece815d9"
+      ],
+      "oos_run_id": "e0aa36f27f4d",
+      "overrides": {
+        "BASE_SIZE": 5,
+        "HORIZON": 60.0,
+        "QUOTE_WIDTH_MULT": 2.0
+      }
+    },
+    {
+      "combo_idx": 3,
+      "is_run_ids": [
+        "71ac59746fc4",
+        "bf7137f51747",
+        "ea34e9280238",
+        "121e8cdec0b3",
+        "d365624f71bd"
+      ],
+      "oos_run_id": "ae3ed28762dc",
+      "overrides": {
+        "BASE_SIZE": 5,
+        "HORIZON": 80.0,
+        "QUOTE_WIDTH_MULT": 2.0
+      }
+    },
+    {
+      "combo_idx": 4,
+      "is_run_ids": [
+        "4a67d144f177",
+        "17623bc07dcf",
+        "aa33a7d6b9ba",
+        "0b5b9e8be8ab",
+        "3c93b424ae37"
+      ],
+      "oos_run_id": "2c149c5e510c",
+      "overrides": {
+        "BASE_SIZE": 5,
+        "HORIZON": 100.0,
+        "QUOTE_WIDTH_MULT": 2.0
+      }
+    },
+    {
+      "combo_idx": 5,
+      "is_run_ids": [
+        "4e04d49ecba0",
+        "bfd779e3073c",
+        "5312b33ce67c",
+        "d436c0add163",
+        "8c0db58f9bdf"
+      ],
+      "oos_run_id": "21fd2bbfda02",
+      "overrides": {
+        "BASE_SIZE": 15,
+        "HORIZON": 20.0,
+        "QUOTE_WIDTH_MULT": 2.0
+      }
+    },
+    {
+      "combo_idx": 6,
+      "is_run_ids": [
+        "5609ec277ca3",
+        "eac8f4eda983",
+        "cf4382e82d50",
+        "45e156dadac7",
+        "c29ee0036057"
+      ],
+      "oos_run_id": "81ded75a2cf1",
+      "overrides": {
+        "BASE_SIZE": 15,
+        "HORIZON": 40.0,
+        "QUOTE_WIDTH_MULT": 2.0
+      }
+    },
+    {
+      "combo_idx": 7,
+      "is_run_ids": [
+        "de7bcea3b3a5",
+        "3841e75963f9",
+        "0dad1b6302bf",
+        "38eec24083d8",
+        "14979f144ed9"
+      ],
+      "oos_run_id": "35c4d78349a7",
+      "overrides": {
+        "BASE_SIZE": 15,
+        "HORIZON": 60.0,
+        "QUOTE_WIDTH_MULT": 2.0
+      }
+    },
+    {
+      "combo_idx": 8,
+      "is_run_ids": [
+        "bba08d6a5e0d",
+        "3af11ec87441",
+        "4892a9217b2b",
+        "09a5dd2c713f",
+        "46af9ee794d9"
+      ],
+      "oos_run_id": "9e00e2b72875",
+      "overrides": {
+        "BASE_SIZE": 15,
+        "HORIZON": 80.0,
+        "QUOTE_WIDTH_MULT": 2.0
+      }
+    },
+    {
+      "combo_idx": 9,
+      "is_run_ids": [
+        "7b6ee3caa50b",
+        "68fbd88b53cf",
+        "8579a20ad2f9",
+        "fa2eeda10008",
+        "50c694071529"
+      ],
+      "oos_run_id": "a5b23eccf30f",
+      "overrides": {
+        "BASE_SIZE": 15,
+        "HORIZON": 100.0,
+        "QUOTE_WIDTH_MULT": 2.0
+      }
+    },
+    {
+      "combo_idx": 10,
+      "is_run_ids": [
+        "157e6357baf9",
+        "2f29c9857e70",
+        "fe5d85cf3602",
+        "46b0fe091c4b",
+        "085bb3328220"
+      ],
+      "oos_run_id": "37f5e80bfa47",
+      "overrides": {
+        "BASE_SIZE": 25,
+        "HORIZON": 20.0,
+        "QUOTE_WIDTH_MULT": 2.0
+      }
+    },
+    {
+      "combo_idx": 11,
+      "is_run_ids": [
+        "b1d08756a511",
+        "844f661c4300",
+        "cc2431b75342",
+        "707523af3a7f",
+        "1d97122a3637"
+      ],
+      "oos_run_id": "757727c5eb3b",
+      "overrides": {
+        "BASE_SIZE": 25,
+        "HORIZON": 40.0,
+        "QUOTE_WIDTH_MULT": 2.0
+      }
+    },
+    {
+      "combo_idx": 12,
+      "is_run_ids": [
+        "f909dc309311",
+        "6062e0d875eb",
+        "f1b3c9b2fd49",
+        "c607798a2fd8",
+        "8258278693c8"
+      ],
+      "oos_run_id": "5b5883ba7e4f",
+      "overrides": {
+        "BASE_SIZE": 25,
+        "HORIZON": 60.0,
+        "QUOTE_WIDTH_MULT": 2.0
+      }
+    },
+    {
+      "combo_idx": 13,
+      "is_run_ids": [
+        "103da0729ba7",
+        "cab84ff28364",
+        "12042ec91578",
+        "beee94ecba0d",
+        "2020e6460075"
+      ],
+      "oos_run_id": "50981076d708",
+      "overrides": {
+        "BASE_SIZE": 25,
+        "HORIZON": 80.0,
+        "QUOTE_WIDTH_MULT": 2.0
+      }
+    },
+    {
+      "combo_idx": 14,
+      "is_run_ids": [
+        "aeeb180402d0",
+        "3349e01cc765",
+        "c8cebfbe4afd",
+        "9ab6e567ff3a",
+        "3fc729af0a8c"
+      ],
+      "oos_run_id": "89b7116db1d9",
+      "overrides": {
+        "BASE_SIZE": 25,
+        "HORIZON": 100.0,
+        "QUOTE_WIDTH_MULT": 2.0
+      }
+    }
+  ],
+  "cpcv_k": 1,
+  "cpcv_n": 5,
+  "cpcv_paths_per_combo": 5,
+  "created_at": "2026-04-25T18:53:07.702606+00:00",
+  "embargo_pct": 0.01,
+  "is_fraction": 0.7,
+  "is_ticks": 21000,
+  "matching_mode": "prosperity",
+  "min_trades": 5,
+  "objective": "mean_pnl",
+  "oos_ticks": 9000,
+  "opt_id": "085fe765ec87",
+  "parameters": [
+    {
+      "max_value": 25.0,
+      "min_value": 5.0,
+      "name": "BASE_SIZE",
+      "step": 10.0,
+      "type": "int"
+    },
+    {
+      "max_value": 2.0,
+      "min_value": 2.0,
+      "name": "QUOTE_WIDTH_MULT",
+      "step": 0.44,
+      "type": "float"
+    },
+    {
+      "max_value": 100.0,
+      "min_value": 20.0,
+      "name": "HORIZON",
+      "step": 20.0,
+      "type": "float"
+    }
+  ],
+  "purge_groups": 1,
+  "search_budget": 30,
+  "search_method": "grid",
+  "status": "completed",
+  "total_combinations": 15,
+  "total_runs": 90,
+  "total_ticks": 30000,
+  "trader_path": "/home/user/projet/prosperity_4/my_research/round3/OU3.py"
+}

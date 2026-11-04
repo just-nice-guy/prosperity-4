@@ -1,0 +1,13 @@
+product,rows,first_day,last_day,file
+HYDROGEL_PACK,30000,0,2,hydrogel_pack.csv
+VELVETFRUIT_EXTRACT,30000,0,2,velvetfruit_extract.csv
+VEV_4000,30000,0,2,vev_4000.csv
+VEV_4500,30000,0,2,vev_4500.csv
+VEV_5000,30000,0,2,vev_5000.csv
+VEV_5100,30000,0,2,vev_5100.csv
+VEV_5200,30000,0,2,vev_5200.csv
+VEV_5300,30000,0,2,vev_5300.csv
+VEV_5400,30000,0,2,vev_5400.csv
+VEV_5500,30000,0,2,vev_5500.csv
+VEV_6000,30000,0,2,vev_6000.csv
+VEV_6500,30000,0,2,vev_6500.csv

@@ -1,0 +1,60 @@
+actif;trend;microprice;mean_rev;rev_cat;taker;maker;description
+GALAXY_SOUNDS_BLACK_HOLES;3;2;1;2;-1;0.5;hausse très forte; mean reversion exploitable; microprice utile pour skew; écart catégorie persistant
+GALAXY_SOUNDS_DARK_MATTER;0;2;0.5;2;-1;2;neutre; continuation locale plutôt que reversion; microprice utile pour skew; reversion relative catégorie utile; privilégier maker
+GALAXY_SOUNDS_PLANETARY_RINGS;-1;2;0;2;-1;0.5;baisse modérée; continuation locale plutôt que reversion; microprice utile pour skew; reversion relative catégorie utile
+GALAXY_SOUNDS_SOLAR_FLAMES;2;2;2;2;0.5;2;hausse forte; mean reversion exploitable; microprice utile pour skew; reversion relative catégorie utile
+GALAXY_SOUNDS_SOLAR_WINDS;0;2;0.5;2;-1;2;neutre; microprice utile pour skew; reversion relative catégorie utile
+
+MICROCHIP_CIRCLE;1;0.5;0.5;2;-1;2;hausse modérée; reversion relative catégorie utile
+MICROCHIP_OVAL;-3;0.5;0.5;2;-1;2;baisse très forte; reversion relative catégorie utile
+MICROCHIP_RECTANGLE;-2;0.5;0.5;2;1;2;baisse forte; reversion relative catégorie utile
+MICROCHIP_SQUARE;3;1;2;2;1;2;hausse très forte; mean reversion exploitable
+MICROCHIP_TRIANGLE;-3;1;0.5;2;1;2;baisse très forte; reversion relative catégorie utile
+
+OXYGEN_SHAKE_CHOCOLATE;1;2;2;2;-1;2;hausse modérée; mean reversion exploitable
+OXYGEN_SHAKE_EVENING_BREATH;-1;2;2;2;-1;2;baisse modérée; mean reversion exploitable
+OXYGEN_SHAKE_GARLIC;3;2;0;2;-1;0.5;hausse très forte; microprice utile
+OXYGEN_SHAKE_MINT;0;1;0.5;2;-1;2;neutre; microprice utile
+OXYGEN_SHAKE_MORNING_BREATH;-1;2;1;2;-1;2;baisse modérée; mean reversion exploitable
+
+PANEL_1X2;-1;1;2;2;1;2;baisse modérée; mean reversion exploitable
+PANEL_1X4;-1;0.5;0.5;2;-1;2;baisse modérée; continuation locale
+PANEL_2X2;-1;0.5;1;2;-1;2;baisse modérée; mean reversion exploitable
+PANEL_2X4;3;1;1;2;0.5;1;hausse très forte; mean reversion exploitable
+PANEL_4X4;-2;0.5;2;2;0.5;2;baisse forte; mean reversion exploitable
+
+PEBBLES_L;-2;1;1;2;0.5;2;baisse forte; mean reversion exploitable
+PEBBLES_M;1;1;1;2;1;2;hausse modérée; mean reversion exploitable
+PEBBLES_S;-2;1;-0.5;2;1;2;baisse forte; continuation locale
+PEBBLES_XL;3;1;2;2;1;2;hausse très forte; mean reversion exploitable
+PEBBLES_XS;-3;0.5;2;2;1;2;baisse très forte; mean reversion exploitable
+
+ROBOT_DISHES;2;0;2;2;1;2;hausse forte; mean reversion exploitable
+ROBOT_IRONING;-3;1;2;2;1;2;baisse très forte; mean reversion exploitable
+ROBOT_LAUNDRY;-1;1;-0.5;2;-1;2;baisse modérée; continuation locale
+ROBOT_MOPPING;2;0.5;0.5;2;1;2;hausse forte; reversion catégorie utile
+ROBOT_VACUUMING;-2;0.5;0;2;-1;2;baisse forte; reversion catégorie utile
+
+SLEEP_POD_COTTON;2;2;0;2;0.5;2;hausse forte; écart catégorie persistant
+SLEEP_POD_LAMB_WOOL;2;1;-0.5;2;1;2;hausse forte; continuation locale
+SLEEP_POD_NYLON;1;1;0.5;2;0.5;2;hausse modérée
+SLEEP_POD_POLYESTER;2;1;1;1;1;2;hausse forte; mean reversion exploitable
+SLEEP_POD_SUEDE;2;1;2;2;-1;0.5;hausse forte; mean reversion exploitable
+
+SNACKPACK_CHOCOLATE;-1;2;2;2;-1;1;baisse modérée; mean reversion exploitable
+SNACKPACK_PISTACHIO;-2;2;2;2;-1;-1;baisse forte; mean reversion exploitable
+SNACKPACK_RASPBERRY;1;2;1;2;-1;2;hausse modérée; mean reversion exploitable
+SNACKPACK_STRAWBERRY;2;2;1;2;-1;2;hausse forte; mean reversion exploitable
+SNACKPACK_VANILLA;1;2;1;2;-1;0.5;hausse modérée; mean reversion exploitable
+
+TRANSLATOR_ASTRO_BLACK;-2;1;0;2;-1;2;baisse forte; continuation locale
+TRANSLATOR_ECLIPSE_CHARCOAL;0;1;0.5;2;-1;2;neutre
+TRANSLATOR_GRAPHITE_MIST;0;1;0.5;2;-1;2;neutre; microprice utile
+TRANSLATOR_SPACE_GRAY;-2;1;0;2;-1;2;baisse forte
+TRANSLATOR_VOID_BLUE;2;1;0;2;-1;2;hausse forte
+
+UV_VISOR_AMBER;-3;2;0;2;1;2;baisse très forte; continuation locale
+UV_VISOR_MAGENTA;2;2;0;2;-1;2;hausse forte
+UV_VISOR_ORANGE;-1;1;0;2;-1;2;baisse modérée
+UV_VISOR_RED;2;2;0;2;1;-1;hausse forte
+UV_VISOR_YELLOW;0;2;1;2;-1;2;neutre; mean reversion exploitable

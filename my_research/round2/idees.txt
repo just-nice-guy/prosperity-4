@@ -1,0 +1,54 @@
+idée
+- mettre mean reversion + tendance long terme
+- imbalance + microprice répété ?
+- quotes trop éloignées du bid/ask, peut-être aider un peu
+- améliorer sigma dans A-S
+
+
+regarder avec attention les fois où on ne cote pas, il faudrait peut-être (je parle de quand il manque l'OB, et s'il n'y a pas de price lt, etc.)
+
+
+il nous faut
+FV court terme (micro price protégé)
+FV long terme 
+gestion de l'inventaire (A-S avec ajustement du spread)
+tendance 
+mean reversion (OU avec tendance)
+
+
+idée 
+court terme = micro price protégé
+long terme = court terme + drift
+drift = OU(court terme, long terme)
+reservation price = (FV final(FV + drift)) (avec ajustement du spread)
+
+
+strat idée
+FV court terme = micro price protégé
+FV long terme (avec tendance) = OLS glissant de FV court terme
+FV final mean reversion = OU(FV court terme, FV long terme)
+gestion de l'inventaire = AS(OU) (peut-être ajustement du spread)
+maker = spread AS
+taker = cassure de prix AS
+
+PB
+- micro price et imbalance capturent un peu la même chose : le FV court terme
+- le micro price prend mal les pics, car les pics, c'est souvent le même orderbook des 2 côtés, mais 1 ordre se place entre et du coup le micro price est impacté ; il faudrait réussir à ne pas
+le prendre en compte (l'ordre parasite) et l'exécuter (après, des fois non : tu peux avoir un déséquilibre sans pic, des fois il n'y a juste pas assez d'ordres, et des fois je ne sais pas,
+donc non, mauvais choix) ; peut-être annuler le sizing des ordres du plus loin au plus proche pour annuler la moyenne et garder les ordres différents ; en fait, ça arrive en haut et en bas, donc trouver un truc plus solide
+ 
+- AVG microprice fait l'inverse de la tendance, il accentue le retard, à enlever
+- plusieurs vols différentes, aucun sens
+- pour le taker, faire avec les ticks, ce sera plus simple (si j'ai le temps, faire une fonction de la vol)
+
+
+ce que je voudrais faire
+FV micro price protégé des ordres bizarres (short term)
+
+A-S risque d'inventaire (aide potentielle avec ajustement bid/ask)
+
+
+modifier AS pour avoir un spread un peu plus large, mais par contre il faut
+que gamma soit positif pour ne jamais atteindre la limite de 80
+
+peut-être que la calibration MLE n'est pas si bonne 

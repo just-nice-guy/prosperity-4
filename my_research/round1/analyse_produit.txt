@@ -1,0 +1,14 @@
+il n'y a que 1000 ticks
+sur chaque jour avant 10000, et donc un backtest avec 30000 ticks donne 1210 fills, ça fait env. 40.33
+et en réalité il y en a 52, donc en fait c'est bon
+
+
+ash coated osmium
+style tomate précédent
+même pb : le nb de takers du marché est toujours le même, 56 (mid+-1 et bbo+-1)
+
+donc se concentrer sur être taker
+
+
+intarian pepper root
+style emerald avec tendance

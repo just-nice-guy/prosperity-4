@@ -1,0 +1,265 @@
+{
+  "combinations": [
+    {
+      "combo_idx": 0,
+      "is_run_ids": [
+        "d44e10f6cd2f",
+        "92bc6d8337d1",
+        "048c915c5101",
+        "d6778c6f7640",
+        "75a448dd6932"
+      ],
+      "oos_run_id": "006056a95cf2",
+      "overrides": {
+        "BASE_SIZE": 6,
+        "QUOTE_WIDTH_MULT": 1.25
+      }
+    },
+    {
+      "combo_idx": 1,
+      "is_run_ids": [
+        "5ecc5029ca07",
+        "1baaa0571534",
+        "374513d3cf2c",
+        "4c7948dc2e53",
+        "39d845423209"
+      ],
+      "oos_run_id": "6c328fa71f7a",
+      "overrides": {
+        "BASE_SIZE": 6,
+        "QUOTE_WIDTH_MULT": 1.5
+      }
+    },
+    {
+      "combo_idx": 2,
+      "is_run_ids": [
+        "a95f8a883cdb",
+        "818ee0e6e244",
+        "64b7c72183ab",
+        "b3ef37d5deb9",
+        "2032474e331f"
+      ],
+      "oos_run_id": "59bfdd2f9f4a",
+      "overrides": {
+        "BASE_SIZE": 6,
+        "QUOTE_WIDTH_MULT": 1.75
+      }
+    },
+    {
+      "combo_idx": 3,
+      "is_run_ids": [
+        "e06d9b88686f",
+        "11c9fbcd7586",
+        "945bba4e00ce",
+        "19d0109ace87",
+        "84871fea03aa"
+      ],
+      "oos_run_id": "90e5d3cca0ca",
+      "overrides": {
+        "BASE_SIZE": 6,
+        "QUOTE_WIDTH_MULT": 2.0
+      }
+    },
+    {
+      "combo_idx": 4,
+      "is_run_ids": [
+        "c5301e7eb277",
+        "59927ac95727",
+        "04ced97ed1e4",
+        "205c9a460a98",
+        "4cb59d0d116d"
+      ],
+      "oos_run_id": "6e80d20a18d3",
+      "overrides": {
+        "BASE_SIZE": 6,
+        "QUOTE_WIDTH_MULT": 2.25
+      }
+    },
+    {
+      "combo_idx": 5,
+      "is_run_ids": [
+        "669ea5026c86",
+        "127ede28a8ec",
+        "549d679b016d",
+        "c69400c94432",
+        "cfc746ac803f"
+      ],
+      "oos_run_id": "037da9d7b38e",
+      "overrides": {
+        "BASE_SIZE": 8,
+        "QUOTE_WIDTH_MULT": 1.25
+      }
+    },
+    {
+      "combo_idx": 6,
+      "is_run_ids": [
+        "2f6f9307627f",
+        "a5fe4c9e81ac",
+        "637e4d2b2c59",
+        "8599c845ca24",
+        "7d8e09567b84"
+      ],
+      "oos_run_id": "48d6d5f6fd67",
+      "overrides": {
+        "BASE_SIZE": 8,
+        "QUOTE_WIDTH_MULT": 1.5
+      }
+    },
+    {
+      "combo_idx": 7,
+      "is_run_ids": [
+        "4f2050a03ad2",
+        "05397193d8a9",
+        "7090abc8439b",
+        "3979852480ea",
+        "2aa7d97fb527"
+      ],
+      "oos_run_id": "3d78e5f16105",
+      "overrides": {
+        "BASE_SIZE": 8,
+        "QUOTE_WIDTH_MULT": 1.75
+      }
+    },
+    {
+      "combo_idx": 8,
+      "is_run_ids": [
+        "6742829fca36",
+        "067b36432dfb",
+        "0724f0f6d7d8",
+        "ee77003daf9f",
+        "17a8ec813c0b"
+      ],
+      "oos_run_id": "a6c29e4a9adf",
+      "overrides": {
+        "BASE_SIZE": 8,
+        "QUOTE_WIDTH_MULT": 2.0
+      }
+    },
+    {
+      "combo_idx": 9,
+      "is_run_ids": [
+        "304ed1e2bcfd",
+        "406d8cfd2bd5",
+        "a0ee27bb65bb",
+        "d38bfeeb466a",
+        "6ad6b771335f"
+      ],
+      "oos_run_id": "4aabc5298298",
+      "overrides": {
+        "BASE_SIZE": 8,
+        "QUOTE_WIDTH_MULT": 2.25
+      }
+    },
+    {
+      "combo_idx": 10,
+      "is_run_ids": [
+        "aa9e9344d6b3",
+        "0d47fc497555",
+        "a74f3aa4d6f9",
+        "67c4bbe543e1",
+        "0f78a2afcecb"
+      ],
+      "oos_run_id": "9de32946897c",
+      "overrides": {
+        "BASE_SIZE": 10,
+        "QUOTE_WIDTH_MULT": 1.25
+      }
+    },
+    {
+      "combo_idx": 11,
+      "is_run_ids": [
+        "256175d2d3c1",
+        "798f15344ef5",
+        "568097d2c426",
+        "c9ffbcba1418",
+        "e991460f9300"
+      ],
+      "oos_run_id": "bb0793600cab",
+      "overrides": {
+        "BASE_SIZE": 10,
+        "QUOTE_WIDTH_MULT": 1.5
+      }
+    },
+    {
+      "combo_idx": 12,
+      "is_run_ids": [
+        "b04f6237e445",
+        "a5c29121a9cc",
+        "845f65a42560",
+        "59070be5e3af",
+        "2ad8c8abd887"
+      ],
+      "oos_run_id": "a2297c5042eb",
+      "overrides": {
+        "BASE_SIZE": 10,
+        "QUOTE_WIDTH_MULT": 1.75
+      }
+    },
+    {
+      "combo_idx": 13,
+      "is_run_ids": [
+        "e6226a2047a0",
+        "f58dd69d5cca",
+        "880631a5b8ff",
+        "e0444eafe0ba",
+        "309aba2da6f1"
+      ],
+      "oos_run_id": "e26445a53045",
+      "overrides": {
+        "BASE_SIZE": 10,
+        "QUOTE_WIDTH_MULT": 2.0
+      }
+    },
+    {
+      "combo_idx": 14,
+      "is_run_ids": [
+        "2ef51c0b0e4a",
+        "2305375a6688",
+        "aaae3adc5d88",
+        "e0f88fba9453",
+        "f69734c2931b"
+      ],
+      "oos_run_id": "03c04fe64178",
+      "overrides": {
+        "BASE_SIZE": 10,
+        "QUOTE_WIDTH_MULT": 2.25
+      }
+    }
+  ],
+  "cpcv_k": 1,
+  "cpcv_n": 5,
+  "cpcv_paths_per_combo": 5,
+  "created_at": "2026-04-25T20:32:08.022100+00:00",
+  "embargo_pct": 0.01,
+  "is_fraction": 0.7,
+  "is_ticks": 21000,
+  "matching_mode": "prosperity",
+  "min_trades": 5,
+  "objective": "mean_pnl",
+  "oos_ticks": 9000,
+  "opt_id": "a2fa86139bea",
+  "parameters": [
+    {
+      "max_value": 10.0,
+      "min_value": 6.0,
+      "name": "BASE_SIZE",
+      "step": 2.0,
+      "type": "int"
+    },
+    {
+      "max_value": 2.25,
+      "min_value": 1.25,
+      "name": "QUOTE_WIDTH_MULT",
+      "step": 0.25,
+      "type": "float"
+    }
+  ],
+  "purge_groups": 1,
+  "search_budget": 300,
+  "search_method": "grid",
+  "status": "completed",
+  "total_combinations": 15,
+  "total_runs": 90,
+  "total_ticks": 30000,
+  "trader_path": "/home/user/projet/prosperity_4/my_research/round3/OU3.py"
+}

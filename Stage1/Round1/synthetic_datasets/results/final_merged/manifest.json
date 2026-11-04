@@ -1,0 +1,138 @@
+{
+  "trader_label": "final_merged",
+  "trader_path": "C:\\Users\\user\\Prosperity4\\prosperity4\\stage1\\final\\trader.py",
+  "datasets": [
+    {
+      "scenario": "flat",
+      "file": "flat.log",
+      "pnl": 46307.5,
+      "fills": 990,
+      "orders": 42187,
+      "ticks": 9980,
+      "final_pos": -57,
+      "n_own_trades": 990,
+      "n_bot_trades": 760
+    },
+    {
+      "scenario": "random_seed_1",
+      "file": "random_seed_1.log",
+      "pnl": 63398.0,
+      "fills": 935,
+      "orders": 42021,
+      "ticks": 9980,
+      "final_pos": 76,
+      "n_own_trades": 935,
+      "n_bot_trades": 760
+    },
+    {
+      "scenario": "random_seed_2",
+      "file": "random_seed_2.log",
+      "pnl": 66953.0,
+      "fills": 952,
+      "orders": 44489,
+      "ticks": 9980,
+      "final_pos": 76,
+      "n_own_trades": 952,
+      "n_bot_trades": 760
+    },
+    {
+      "scenario": "random_seed_3",
+      "file": "random_seed_3.log",
+      "pnl": 65127.0,
+      "fills": 946,
+      "orders": 43100,
+      "ticks": 9980,
+      "final_pos": 76,
+      "n_own_trades": 946,
+      "n_bot_trades": 760
+    },
+    {
+      "scenario": "random_seed_4",
+      "file": "random_seed_4.log",
+      "pnl": 61428.5,
+      "fills": 949,
+      "orders": 43330,
+      "ticks": 9980,
+      "final_pos": -57,
+      "n_own_trades": 949,
+      "n_bot_trades": 760
+    },
+    {
+      "scenario": "random_seed_5",
+      "file": "random_seed_5.log",
+      "pnl": 62116.5,
+      "fills": 933,
+      "orders": 43238,
+      "ticks": 9980,
+      "final_pos": -61,
+      "n_own_trades": 933,
+      "n_bot_trades": 760
+    },
+    {
+      "scenario": "reversal_end",
+      "file": "reversal_end.log",
+      "pnl": 80039.5,
+      "fills": 935,
+      "orders": 47251,
+      "ticks": 9980,
+      "final_pos": -57,
+      "n_own_trades": 935,
+      "n_bot_trades": 760
+    },
+    {
+      "scenario": "reversal_middle",
+      "file": "reversal_middle.log",
+      "pnl": 73142.5,
+      "fills": 906,
+      "orders": 42264,
+      "ticks": 9980,
+      "final_pos": -61,
+      "n_own_trades": 906,
+      "n_bot_trades": 760
+    },
+    {
+      "scenario": "reversal_start",
+      "file": "reversal_start.log",
+      "pnl": 79119.0,
+      "fills": 936,
+      "orders": 47900,
+      "ticks": 9980,
+      "final_pos": 76,
+      "n_own_trades": 936,
+      "n_bot_trades": 760
+    },
+    {
+      "scenario": "trend_down",
+      "file": "trend_down.log",
+      "pnl": 66556.5,
+      "fills": 846,
+      "orders": 36842,
+      "ticks": 9980,
+      "final_pos": -61,
+      "n_own_trades": 846,
+      "n_bot_trades": 760
+    },
+    {
+      "scenario": "trend_up",
+      "file": "trend_up.log",
+      "pnl": 85266.0,
+      "fills": 936,
+      "orders": 48299,
+      "ticks": 9980,
+      "final_pos": 76,
+      "n_own_trades": 936,
+      "n_bot_trades": 760
+    },
+    {
+      "scenario": "zigzag_long",
+      "file": "zigzag_long.log",
+      "pnl": 65127.0,
+      "fills": 946,
+      "orders": 43100,
+      "ticks": 9980,
+      "final_pos": 76,
+      "n_own_trades": 946,
+      "n_bot_trades": 760
+    }
+  ]
+}

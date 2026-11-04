@@ -1,0 +1,89 @@
+{
+  "combinations": [
+    {
+      "combo_idx": 0,
+      "is_run_ids": [
+        "96de571a25a4",
+        "e44c595f34f9",
+        "dee6794363b6",
+        "ef8b89cf820a",
+        "76f10f363df9"
+      ],
+      "oos_run_id": "5259ec2ef46e",
+      "overrides": {
+        "W": 0.1
+      }
+    },
+    {
+      "combo_idx": 1,
+      "is_run_ids": [
+        "ba849a35be18",
+        "be4d230400e3",
+        "d0b6db537f3a",
+        "387c30d7b1b7",
+        "847a524ad057"
+      ],
+      "oos_run_id": "2773b4d3942a",
+      "overrides": {
+        "W": 0.2
+      }
+    },
+    {
+      "combo_idx": 2,
+      "is_run_ids": [
+        "133ce1c7ab2d",
+        "4dec025c2912",
+        "6b04f4fd5795",
+        "a59288ed5b84",
+        "5db14c4a7370"
+      ],
+      "oos_run_id": "8c44c0c1b5b7",
+      "overrides": {
+        "W": 0.3
+      }
+    },
+    {
+      "combo_idx": 3,
+      "is_run_ids": [
+        "a7d3e6eb881c",
+        "bef41b541b62",
+        "9b41f8370956",
+        "024afea3c1ae",
+        "69111bba1f1f"
+      ],
+      "oos_run_id": "a2c5c1f14086",
+      "overrides": {
+        "W": 0.4
+      }
+    }
+  ],
+  "cpcv_k": 1,
+  "cpcv_n": 5,
+  "cpcv_paths_per_combo": 5,
+  "created_at": "2026-04-25T21:16:00.031427+00:00",
+  "embargo_pct": 0.01,
+  "is_fraction": 0.7,
+  "is_ticks": 21000,
+  "matching_mode": "prosperity",
+  "min_trades": 5,
+  "objective": "mean_pnl",
+  "oos_ticks": 9000,
+  "opt_id": "e9250e920193",
+  "parameters": [
+    {
+      "max_value": 0.4,
+      "min_value": 0.1,
+      "name": "W",
+      "step": 0.1,
+      "type": "float"
+    }
+  ],
+  "purge_groups": 1,
+  "search_budget": 30,
+  "search_method": "grid",
+  "status": "completed",
+  "total_combinations": 4,
+  "total_runs": 24,
+  "total_ticks": 30000,
+  "trader_path": "/home/user/projet/prosperity_4/my_research/round3/OU3.py"
+}

@@ -1,0 +1,16 @@
+penser à faire un prix long terme OU qui a au début une valeur fixe, mais qui bouge assez lentement, par exemple
+on le fait sur une liste de 1000 ticks où au début tu mets la médiane des données de backtest, genre 10000, puis ça prendra la médiane des 1000 ticks roulants
+
+pour avoir une bonne moyenne, peut-être prendre la moyenne du min et du max sur une période x
+
+il y a tendance + mean reversion
+
+les trucs à 0 : mettre un ordre max et les vendre à max(1, bbo+-1)
+
+
+vendre des options et juste hedge delta et gamma
+
+
+arbitrage statique option et sous-jacent
+taker-taker instantané
+maker-taker (quasi instantané)

@@ -1,0 +1,220 @@
+{
+  "combinations": [
+    {
+      "combo_idx": 0,
+      "is_run_ids": [
+        "d9f1c1551578",
+        "69d0af781b98",
+        "0f71dd2999d5",
+        "159f6f0ca3ed",
+        "0fb370ab49f9"
+      ],
+      "oos_run_id": "9f940204deca",
+      "overrides": {
+        "ETA_INV": 0.5,
+        "THETA_SIZE": 0.5
+      }
+    },
+    {
+      "combo_idx": 1,
+      "is_run_ids": [
+        "b73f39b55b10",
+        "db51aa23f5a2",
+        "e904fb2c77d7",
+        "832f328430f6",
+        "487f336d1427"
+      ],
+      "oos_run_id": "551279e5d0a4",
+      "overrides": {
+        "ETA_INV": 0.5,
+        "THETA_SIZE": 1.0
+      }
+    },
+    {
+      "combo_idx": 2,
+      "is_run_ids": [
+        "cc5cf52cb79c",
+        "8690a7e099e4",
+        "9d668b2321e0",
+        "4d19c503442e",
+        "30cc901b0bb7"
+      ],
+      "oos_run_id": "440d3d5d85b2",
+      "overrides": {
+        "ETA_INV": 0.5,
+        "THETA_SIZE": 1.5
+      }
+    },
+    {
+      "combo_idx": 3,
+      "is_run_ids": [
+        "d6ea956856b2",
+        "77a5b607fa97",
+        "a9ee7253d5b6",
+        "17cb5697c129",
+        "bf77f2c3d971"
+      ],
+      "oos_run_id": "cda22a4a5e3f",
+      "overrides": {
+        "ETA_INV": 0.5,
+        "THETA_SIZE": 2.0
+      }
+    },
+    {
+      "combo_idx": 4,
+      "is_run_ids": [
+        "91e498ae4654",
+        "38c2aeaa6010",
+        "14531c3585bc",
+        "1e965a531d46",
+        "f07fe8c5753d"
+      ],
+      "oos_run_id": "63050998bade",
+      "overrides": {
+        "ETA_INV": 0.75,
+        "THETA_SIZE": 0.5
+      }
+    },
+    {
+      "combo_idx": 5,
+      "is_run_ids": [
+        "256b22e5c180",
+        "74dfa2baa7d5",
+        "0c1736498d11",
+        "1d666a36af8d",
+        "92205b6a5fae"
+      ],
+      "oos_run_id": "dc1ba380ab3e",
+      "overrides": {
+        "ETA_INV": 0.75,
+        "THETA_SIZE": 1.0
+      }
+    },
+    {
+      "combo_idx": 6,
+      "is_run_ids": [
+        "8a72c40b6b6d",
+        "b5d8cc7f80db",
+        "f3e4095cb758",
+        "7c6b2ef29745",
+        "e4a766e5b896"
+      ],
+      "oos_run_id": "b75bb790371e",
+      "overrides": {
+        "ETA_INV": 0.75,
+        "THETA_SIZE": 1.5
+      }
+    },
+    {
+      "combo_idx": 7,
+      "is_run_ids": [
+        "c8227d45bf57",
+        "ab8fca4f9dfd",
+        "f6014131b33f",
+        "7d09c8f34448",
+        "7d66026f7c6c"
+      ],
+      "oos_run_id": "8ef3441ce585",
+      "overrides": {
+        "ETA_INV": 0.75,
+        "THETA_SIZE": 2.0
+      }
+    },
+    {
+      "combo_idx": 8,
+      "is_run_ids": [
+        "4a64fed758d1",
+        "c6e18b4c7997",
+        "757d3b5a8676",
+        "d8db191aaa0c",
+        "98c10328f9f1"
+      ],
+      "oos_run_id": "196dd218312b",
+      "overrides": {
+        "ETA_INV": 1.0,
+        "THETA_SIZE": 0.5
+      }
+    },
+    {
+      "combo_idx": 9,
+      "is_run_ids": [
+        "7242d313d1f6",
+        "6eb9fd20ec47",
+        "a59ba6365f39",
+        "f7fdff77ffec",
+        "49488988dba6"
+      ],
+      "oos_run_id": "870cbd95eb6a",
+      "overrides": {
+        "ETA_INV": 1.0,
+        "THETA_SIZE": 1.0
+      }
+    },
+    {
+      "combo_idx": 10,
+      "is_run_ids": [
+        "fbf9138e21bf",
+        "4ad8f3ac72ee",
+        "386fa973efd1",
+        "f9e779d7a6a9",
+        "db66c196d2b8"
+      ],
+      "oos_run_id": "f275b3ab96fa",
+      "overrides": {
+        "ETA_INV": 1.0,
+        "THETA_SIZE": 1.5
+      }
+    },
+    {
+      "combo_idx": 11,
+      "is_run_ids": [
+        "634b998c6118",
+        "23aa36f8e132",
+        "33f2ce17be14",
+        "399b7ba9ae09",
+        "6ea4a235c7b0"
+      ],
+      "oos_run_id": "064e0fa51051",
+      "overrides": {
+        "ETA_INV": 1.0,
+        "THETA_SIZE": 2.0
+      }
+    }
+  ],
+  "cpcv_k": 1,
+  "cpcv_n": 5,
+  "cpcv_paths_per_combo": 5,
+  "created_at": "2026-04-25T20:46:03.618513+00:00",
+  "embargo_pct": 0.01,
+  "is_fraction": 0.7,
+  "is_ticks": 21000,
+  "matching_mode": "prosperity",
+  "min_trades": 5,
+  "objective": "mean_pnl",
+  "oos_ticks": 9000,
+  "opt_id": "9887f4623600",
+  "parameters": [
+    {
+      "max_value": 1.0,
+      "min_value": 0.5,
+      "name": "ETA_INV",
+      "step": 0.25,
+      "type": "float"
+    },
+    {
+      "max_value": 2.0,
+      "min_value": 0.5,
+      "name": "THETA_SIZE",
+      "step": 0.5,
+      "type": "float"
+    }
+  ],
+  "purge_groups": 1,
+  "search_budget": 300,
+  "search_method": "grid",
+  "status": "completed",
+  "total_combinations": 12,
+  "total_runs": 72,
+  "total_ticks": 30000,
+  "trader_path": "/home/user/projet/prosperity_4/my_research/round3/OU3.py"
+}

@@ -1,0 +1,191 @@
+{
+  "combinations": [
+    {
+      "combo_idx": 0,
+      "is_run_ids": [
+        "2df01eaad2f7",
+        "0fd4db141414",
+        "0a6bcf3b1955",
+        "7fb3d39a9983",
+        "f5775d0ff255"
+      ],
+      "oos_run_id": "9fbf0f2dedda",
+      "overrides": {
+        "BASE_SIZE": 20,
+        "HORIZON": 25.0,
+        "QUOTE_WIDTH_MULT": 2.0
+      }
+    },
+    {
+      "combo_idx": 1,
+      "is_run_ids": [
+        "7d88ab21de9e",
+        "202a186e70e9",
+        "4c7d47c9c325",
+        "7ec1501256ca",
+        "e344b96917dc"
+      ],
+      "oos_run_id": "33cb1e9e2edb",
+      "overrides": {
+        "BASE_SIZE": 20,
+        "HORIZON": 40.0,
+        "QUOTE_WIDTH_MULT": 2.0
+      }
+    },
+    {
+      "combo_idx": 2,
+      "is_run_ids": [
+        "94e0b5a83e16",
+        "777c3bf0b4a7",
+        "a6f39c76434c",
+        "fd8736be0736",
+        "8ce766f5b046"
+      ],
+      "oos_run_id": "df2e10d7c825",
+      "overrides": {
+        "BASE_SIZE": 20,
+        "HORIZON": 55.0,
+        "QUOTE_WIDTH_MULT": 2.0
+      }
+    },
+    {
+      "combo_idx": 3,
+      "is_run_ids": [
+        "be9228c8551f",
+        "0cc48753044a",
+        "54b9463da5ba",
+        "aac26a6e1f03",
+        "cadf791670bf"
+      ],
+      "oos_run_id": "d858996cbfcd",
+      "overrides": {
+        "BASE_SIZE": 35,
+        "HORIZON": 25.0,
+        "QUOTE_WIDTH_MULT": 2.0
+      }
+    },
+    {
+      "combo_idx": 4,
+      "is_run_ids": [
+        "ec7cefa239d4",
+        "2f3ce286e2db",
+        "eda9b6723273",
+        "50d4b6bf041b",
+        "0dc5c460973f"
+      ],
+      "oos_run_id": "524534195add",
+      "overrides": {
+        "BASE_SIZE": 35,
+        "HORIZON": 40.0,
+        "QUOTE_WIDTH_MULT": 2.0
+      }
+    },
+    {
+      "combo_idx": 5,
+      "is_run_ids": [
+        "8e3df58d7d52",
+        "ea9fdbd7a8ab",
+        "4a5d4e57239a",
+        "901d5829dc89",
+        "df7e6bcc9df3"
+      ],
+      "oos_run_id": "35c26a9a80a4",
+      "overrides": {
+        "BASE_SIZE": 35,
+        "HORIZON": 55.0,
+        "QUOTE_WIDTH_MULT": 2.0
+      }
+    },
+    {
+      "combo_idx": 6,
+      "is_run_ids": [
+        "faffdb75a49c",
+        "d365c4535d59",
+        "f3bec5252036",
+        "d1c98b094972",
+        "8f972e70a934"
+      ],
+      "oos_run_id": "cf3c706aac5c",
+      "overrides": {
+        "BASE_SIZE": 50,
+        "HORIZON": 25.0,
+        "QUOTE_WIDTH_MULT": 2.0
+      }
+    },
+    {
+      "combo_idx": 7,
+      "is_run_ids": [
+        "18ccd9841b2e",
+        "1c0f5c5f0ef7",
+        "342f9e0f62db",
+        "ee1ca05c1ae8",
+        "3a7f3165adc8"
+      ],
+      "oos_run_id": "789573ac6b83",
+      "overrides": {
+        "BASE_SIZE": 50,
+        "HORIZON": 40.0,
+        "QUOTE_WIDTH_MULT": 2.0
+      }
+    },
+    {
+      "combo_idx": 8,
+      "is_run_ids": [
+        "30f99285759e",
+        "fef00a9f753b",
+        "f2c7d8d43b49",
+        "6f0bae52b993",
+        "bc43b38d958f"
+      ],
+      "oos_run_id": "fcc7bce1bf98",
+      "overrides": {
+        "BASE_SIZE": 50,
+        "HORIZON": 55.0,
+        "QUOTE_WIDTH_MULT": 2.0
+      }
+    }
+  ],
+  "cpcv_k": 1,
+  "cpcv_n": 5,
+  "cpcv_paths_per_combo": 5,
+  "created_at": "2026-04-25T18:40:19.370158+00:00",
+  "embargo_pct": 0.01,
+  "is_fraction": 0.7,
+  "is_ticks": 21000,
+  "matching_mode": "prosperity",
+  "min_trades": 5,
+  "objective": "mean_pnl",
+  "oos_ticks": 9000,
+  "opt_id": "9ce0eeea3dff",
+  "parameters": [
+    {
+      "max_value": 50.0,
+      "min_value": 20.0,
+      "name": "BASE_SIZE",
+      "step": 15.0,
+      "type": "int"
+    },
+    {
+      "max_value": 2.0,
+      "min_value": 2.0,
+      "name": "QUOTE_WIDTH_MULT",
+      "step": 0.44,
+      "type": "float"
+    },
+    {
+      "max_value": 55.0,
+      "min_value": 25.0,
+      "name": "HORIZON",
+      "step": 15.0,
+      "type": "float"
+    }
+  ],
+  "purge_groups": 1,
+  "search_budget": 30,
+  "search_method": "grid",
+  "status": "completed",
+  "total_combinations": 9,
+  "total_runs": 54,
+  "total_ticks": 30000,
+  "trader_path": "/home/user/projet/prosperity_4/my_research/round3/OU3.py"
+}
